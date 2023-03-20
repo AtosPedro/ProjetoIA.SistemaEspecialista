@@ -41,7 +41,7 @@
             this.homePage = new System.Windows.Forms.TabPage();
             this.objectivePage = new System.Windows.Forms.TabPage();
             this.objectivePageDGPanel = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvObjective = new System.Windows.Forms.DataGridView();
             this.objectiveTabToolStrip = new System.Windows.Forms.ToolStrip();
             this.addObjectiveButton = new System.Windows.Forms.ToolStripButton();
             this.editObjectiveButton = new System.Windows.Forms.ToolStripButton();
@@ -60,7 +60,7 @@
             this.homeTab.SuspendLayout();
             this.objectivePage.SuspendLayout();
             this.objectivePageDGPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObjective)).BeginInit();
             this.objectiveTabToolStrip.SuspendLayout();
             this.characteristicPage.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -96,7 +96,7 @@
             // 
             this.newToolStripMenuItem.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.add_icon_shallow;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.newToolStripMenuItem.Text = "Novo";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -104,7 +104,7 @@
             // 
             this.editToolStripMenuItem.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.edit_icon_shallow;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.editToolStripMenuItem.Text = "Abrir";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -125,7 +125,7 @@
             // 
             this.manualToolStripMenuItem.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.question_mark_icon_shallow;
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.manualToolStripMenuItem.Text = "Manual";
             this.manualToolStripMenuItem.Click += new System.EventHandler(this.manualToolStripMenuItem_Click);
             // 
@@ -133,7 +133,7 @@
             // 
             this.devsToolStripMenuItem.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.code_icon_shallow;
             this.devsToolStripMenuItem.Name = "devsToolStripMenuItem";
-            this.devsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.devsToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.devsToolStripMenuItem.Text = "Devs";
             this.devsToolStripMenuItem.Click += new System.EventHandler(this.devsToolStripMenuItem_Click);
             // 
@@ -181,21 +181,21 @@
             // 
             // objectivePageDGPanel
             // 
-            this.objectivePageDGPanel.Controls.Add(this.dataGridView1);
+            this.objectivePageDGPanel.Controls.Add(this.dgvObjective);
             this.objectivePageDGPanel.Location = new System.Drawing.Point(8, 31);
             this.objectivePageDGPanel.Name = "objectivePageDGPanel";
             this.objectivePageDGPanel.Size = new System.Drawing.Size(776, 358);
             this.objectivePageDGPanel.TabIndex = 1;
             // 
-            // dataGridView1
+            // dgvObjective
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 358);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvObjective.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvObjective.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvObjective.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvObjective.Location = new System.Drawing.Point(0, 0);
+            this.dgvObjective.Name = "dgvObjective";
+            this.dgvObjective.Size = new System.Drawing.Size(776, 358);
+            this.dgvObjective.TabIndex = 0;
             // 
             // objectiveTabToolStrip
             // 
@@ -233,7 +233,7 @@
             this.deleteObjectiveButton.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.delete_icon_shallow;
             this.deleteObjectiveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.deleteObjectiveButton.Name = "deleteObjectiveButton";
-            this.deleteObjectiveButton.Size = new System.Drawing.Size(62, 22);
+            this.deleteObjectiveButton.Size = new System.Drawing.Size(61, 22);
             this.deleteObjectiveButton.Text = "Excluir";
             this.deleteObjectiveButton.Click += new System.EventHandler(this.deleteObjectiveButton_Click);
             // 
@@ -323,7 +323,7 @@
             this.deleteCharacteristicButton.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.delete_icon_shallow;
             this.deleteCharacteristicButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.deleteCharacteristicButton.Name = "deleteCharacteristicButton";
-            this.deleteCharacteristicButton.Size = new System.Drawing.Size(62, 22);
+            this.deleteCharacteristicButton.Size = new System.Drawing.Size(61, 22);
             this.deleteCharacteristicButton.Text = "Excluir";
             this.deleteCharacteristicButton.Click += new System.EventHandler(this.deleteCharacteristicButton_Click);
             // 
@@ -355,7 +355,7 @@
             this.objectivePage.ResumeLayout(false);
             this.objectivePage.PerformLayout();
             this.objectivePageDGPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObjective)).EndInit();
             this.objectiveTabToolStrip.ResumeLayout(false);
             this.objectiveTabToolStrip.PerformLayout();
             this.characteristicPage.ResumeLayout(false);
@@ -399,5 +399,6 @@
         private ToolStripButton deleteCharacteristicButton;
         private ToolStripButton refreshCharacteristicsListButton;
         private ToolStripButton refreshObjectiveListButton;
+        private DataGridView dgvObjective;
     }
 }

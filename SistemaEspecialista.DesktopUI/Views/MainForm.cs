@@ -9,11 +9,13 @@ namespace SistemaEspecialista.DesktopUI.Views;
 public partial class MainForm : Form
 {
     private readonly IProjectRepository _projectRepository;
+    private readonly IObjectiveRepository _objectiveRepository;
     public Project LoadedProject { get; set; }
 
     public MainForm()
     {
         _projectRepository = Program.ServiceProvider.GetRequiredService<IProjectRepository>();
+        _objectiveRepository = Program.ServiceProvider.GetRequiredService<IObjectiveRepository>();
         InitializeComponent();
     }
 
@@ -61,9 +63,15 @@ public partial class MainForm : Form
 
     #region Objectives Tab
 
-    private void addObjectiveButton_Click(object sender, EventArgs e)
+    private async void addObjectiveButton_Click(object sender, EventArgs e)
     {
-
+        using (ObjectiveDialogForm form = new ObjectiveDialogForm(_objectiveRepository, LoadedProject.Id))
+        {
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                dgvObjective.DataSource = await _objectiveRepository.GetAll(CancellationToken.None);
+            }
+        }
     }
 
     private void editObjectiveButton_Click(object sender, EventArgs e)
