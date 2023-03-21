@@ -15,6 +15,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IObjectiveRepository, ObjectiveRepository>();
         services.AddSingleton<ICharacteristicsRepository, CharacteristicRepository>();
         services.AddSingleton<IObjectiveCharacteristicRepository, ObjectiveCharacteristicRepository>();
+        services.AddSingleton<IQuestionRepository, QuestionRepository>();
         services.AddDbContext<ApplicationDbContext>();
         return services;
     }

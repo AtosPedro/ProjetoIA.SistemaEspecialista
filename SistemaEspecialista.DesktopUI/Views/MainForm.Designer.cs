@@ -234,7 +234,7 @@
             this.deleteObjectiveButton.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.delete_icon_shallow;
             this.deleteObjectiveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.deleteObjectiveButton.Name = "deleteObjectiveButton";
-            this.deleteObjectiveButton.Size = new System.Drawing.Size(62, 22);
+            this.deleteObjectiveButton.Size = new System.Drawing.Size(61, 22);
             this.deleteObjectiveButton.Text = "Excluir";
             this.deleteObjectiveButton.Click += new System.EventHandler(this.deleteObjectiveButton_Click);
             // 
@@ -325,7 +325,7 @@
             this.deleteCharacteristicButton.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.delete_icon_shallow;
             this.deleteCharacteristicButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.deleteCharacteristicButton.Name = "deleteCharacteristicButton";
-            this.deleteCharacteristicButton.Size = new System.Drawing.Size(62, 22);
+            this.deleteCharacteristicButton.Size = new System.Drawing.Size(61, 22);
             this.deleteCharacteristicButton.Text = "Excluir";
             this.deleteCharacteristicButton.Click += new System.EventHandler(this.deleteCharacteristicButton_Click);
             // 

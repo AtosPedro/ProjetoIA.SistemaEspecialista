@@ -13,6 +13,7 @@ public partial class MainForm : Form
     private readonly IObjectiveRepository _objectiveRepository;
     private readonly ICharacteristicsRepository _characteristicsRepository;
     private readonly IObjectiveCharacteristicRepository _objectiveCharacteristicRepository;
+    private readonly IQuestionRepository _questionRepository;
 
     public Project LoadedProject { get; set; }
 
@@ -22,6 +23,7 @@ public partial class MainForm : Form
         _objectiveRepository = Program.ServiceProvider.GetRequiredService<IObjectiveRepository>();
         _characteristicsRepository = Program.ServiceProvider.GetRequiredService<ICharacteristicsRepository>();
         _objectiveCharacteristicRepository = Program.ServiceProvider.GetRequiredService<IObjectiveCharacteristicRepository>();
+        _questionRepository = Program.ServiceProvider.GetRequiredService<IQuestionRepository>();
 
         LoadedProject = _projectRepository.GetAll(CancellationToken.None)?.Result?.LastOrDefault();
         InitializeComponent();
@@ -138,14 +140,12 @@ public partial class MainForm : Form
 
     private async void refreshCharacteristicsListButton_Click(object sender, EventArgs e)
     {
-        dgvCharacteristics.DataSource = await _characteristicsRepository.Search(
-            characteristic => characteristic.ProjectId == LoadedProject.Id,
-            CancellationToken.None);
+        dgvCharacteristics.DataSource = await _characteristicsRepository.GetCharacteristicsByProjectAsync(LoadedProject.Id);
     }
 
     private async void addCharacteristicButton_Click(object sender, EventArgs e)
     {
-        using (CharacteristicsDialogForm form = new CharacteristicsDialogForm(_characteristicsRepository, LoadedProject.Id))
+        using (CharacteristicsDialogForm form = new CharacteristicsDialogForm(_characteristicsRepository, _questionRepository, LoadedProject.Id))
         {
             if (form.ShowDialog() == DialogResult.OK)
             {
@@ -166,7 +166,7 @@ public partial class MainForm : Form
             characteristic = (Characteristic)dgvCharacteristics.Rows[dgvObjective.SelectedCells[0].RowIndex].DataBoundItem;
         }
 
-        using (CharacteristicsDialogForm form = new CharacteristicsDialogForm(_characteristicsRepository, LoadedProject.Id, characteristic))
+        using (CharacteristicsDialogForm form = new CharacteristicsDialogForm(_characteristicsRepository, _questionRepository, LoadedProject.Id, characteristic))
         {
             if (form.ShowDialog() == DialogResult.OK)
             {
