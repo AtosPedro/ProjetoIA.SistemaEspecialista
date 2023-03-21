@@ -28,70 +28,75 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            button1 = new Button();
-            button2 = new Button();
-            label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            SuspendLayout();
+            this.objective_screen = new System.Windows.Forms.DataGridView();
+            this.cancel_bttn = new System.Windows.Forms.Button();
+            this.save_bttn = new System.Windows.Forms.Button();
+            this.objective_to_search = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.objective_screen)).BeginInit();
+            this.SuspendLayout();
             // 
-            // dataGridView1
+            // objective_screen
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(13, 53);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(501, 248);
-            dataGridView1.TabIndex = 0;
+            this.objective_screen.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.objective_screen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.objective_screen.GridColor = System.Drawing.SystemColors.ControlText;
+            this.objective_screen.Location = new System.Drawing.Point(13, 53);
+            this.objective_screen.Name = "objective_screen";
+            this.objective_screen.RowTemplate.Height = 25;
+            this.objective_screen.Size = new System.Drawing.Size(501, 248);
+            this.objective_screen.TabIndex = 0;
+            this.objective_screen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.objective_screen_CellContentClick);
             // 
-            // button1
+            // cancel_bttn
             // 
-            button1.Location = new Point(13, 329);
-            button1.Name = "button1";
-            button1.Size = new Size(186, 65);
-            button1.TabIndex = 1;
-            button1.Text = "Cancelar";
-            button1.UseVisualStyleBackColor = true;
+            this.cancel_bttn.Location = new System.Drawing.Point(13, 329);
+            this.cancel_bttn.Name = "cancel_bttn";
+            this.cancel_bttn.Size = new System.Drawing.Size(186, 65);
+            this.cancel_bttn.TabIndex = 1;
+            this.cancel_bttn.Text = "Cancelar";
+            this.cancel_bttn.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // save_bttn
             // 
-            button2.Location = new Point(328, 329);
-            button2.Name = "button2";
-            button2.Size = new Size(186, 65);
-            button2.TabIndex = 2;
-            button2.Text = "Salvar";
-            button2.UseVisualStyleBackColor = true;
+            this.save_bttn.Location = new System.Drawing.Point(328, 329);
+            this.save_bttn.Name = "save_bttn";
+            this.save_bttn.Size = new System.Drawing.Size(186, 65);
+            this.save_bttn.TabIndex = 2;
+            this.save_bttn.Text = "Salvar";
+            this.save_bttn.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // objective_to_search
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(13, 25);
-            label1.Name = "label1";
-            label1.Size = new Size(192, 15);
-            label1.TabIndex = 3;
-            label1.Text = "Escolha os objetivos para pesquisar";
+            this.objective_to_search.AutoSize = true;
+            this.objective_to_search.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.objective_to_search.Location = new System.Drawing.Point(13, 21);
+            this.objective_to_search.Name = "objective_to_search";
+            this.objective_to_search.Size = new System.Drawing.Size(194, 17);
+            this.objective_to_search.TabIndex = 3;
+            this.objective_to_search.Text = "Escolha os objetivos para pesquisar";
             // 
             // AddObjectivesToRunDialog
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(536, 420);
-            Controls.Add(label1);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(dataGridView1);
-            Name = "AddObjectivesToRunDialog";
-            Text = "Adicionar Objetivos";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(536, 420);
+            this.Controls.Add(this.objective_to_search);
+            this.Controls.Add(this.save_bttn);
+            this.Controls.Add(this.cancel_bttn);
+            this.Controls.Add(this.objective_screen);
+            this.Name = "AddObjectivesToRunDialog";
+            this.Text = "Adicionar Objetivos";
+            ((System.ComponentModel.ISupportInitialize)(this.objective_screen)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private Button button1;
-        private Button button2;
-        private Label label1;
+        private DataGridView objective_screen;
+        private Button cancel_bttn;
+        private Button save_bttn;
+        private Label objective_to_search;
     }
 }
