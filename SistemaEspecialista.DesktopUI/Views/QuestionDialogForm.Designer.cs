@@ -28,88 +28,90 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            textBox2 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
-            SuspendLayout();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.SuspendLayout();
             // 
-            // textBox1
+            // txtTitle
             // 
-            textBox1.Location = new Point(49, 61);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(348, 23);
-            textBox1.TabIndex = 0;
+            this.txtTitle.Location = new System.Drawing.Point(49, 61);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(348, 23);
+            this.txtTitle.TabIndex = 0;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(49, 43);
-            label1.Name = "label1";
-            label1.Size = new Size(37, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Título";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(49, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Título";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(49, 103);
-            label2.Name = "label2";
-            label2.Size = new Size(58, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Descrição";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(49, 103);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 15);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Descrição";
             // 
-            // textBox2
+            // txtDescription
             // 
-            textBox2.Location = new Point(49, 121);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(348, 23);
-            textBox2.TabIndex = 2;
+            this.txtDescription.Location = new System.Drawing.Point(49, 121);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(348, 23);
+            this.txtDescription.TabIndex = 2;
             // 
-            // button1
+            // btnCancel
             // 
-            button1.Location = new Point(49, 173);
-            button1.Name = "button1";
-            button1.Size = new Size(137, 44);
-            button1.TabIndex = 4;
-            button1.Text = "Cancelar";
-            button1.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(49, 173);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(137, 44);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnSave
             // 
-            button2.Location = new Point(260, 173);
-            button2.Name = "button2";
-            button2.Size = new Size(137, 44);
-            button2.TabIndex = 5;
-            button2.Text = "Salvar";
-            button2.UseVisualStyleBackColor = true;
+            this.btnSave.Location = new System.Drawing.Point(260, 173);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(137, 44);
+            this.btnSave.TabIndex = 5;
+            this.btnSave.Text = "Salvar";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // QuestionDialogForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(451, 258);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(label2);
-            Controls.Add(textBox2);
-            Controls.Add(label1);
-            Controls.Add(textBox1);
-            Name = "QuestionDialogForm";
-            Text = "Nova Pergunta";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(451, 258);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtDescription);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtTitle);
+            this.Name = "QuestionDialogForm";
+            this.Text = "Nova Pergunta";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox txtTitle;
         private Label label1;
         private Label label2;
-        private TextBox textBox2;
-        private Button button1;
-        private Button button2;
+        private TextBox txtDescription;
+        private Button btnCancel;
+        private Button btnSave;
     }
 }

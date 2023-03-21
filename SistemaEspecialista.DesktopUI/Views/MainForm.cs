@@ -163,7 +163,7 @@ public partial class MainForm : Form
         }
         else
         {
-            characteristic = (Characteristic)dgvCharacteristics.Rows[dgvObjective.SelectedCells[0].RowIndex].DataBoundItem;
+            characteristic = (Characteristic)dgvCharacteristics?.Rows[dgvObjective?.SelectedCells[0]?.RowIndex ?? 0]?.DataBoundItem;
         }
 
         using (CharacteristicsDialogForm form = new CharacteristicsDialogForm(_characteristicsRepository, _questionRepository, LoadedProject.Id, characteristic))
