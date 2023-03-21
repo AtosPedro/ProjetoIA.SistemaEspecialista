@@ -8,5 +8,4 @@ public class Project : Entity
     public List<Characteristic> Characteristics { get; set; } = new();
     public List<ObjectiveCharacteristic> ObjectiveCharacteristics { get; set; } = new();
     public List<Question> Questions { get; set; } = new();
-    public List<Log> Logs { get; set; } = new();
 }

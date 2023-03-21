@@ -1,4 +1,5 @@
 ﻿using SistemaEspecialista.Domain.Entities;
+using System.Linq.Expressions;
 
 namespace SistemaEspecialista.Application.Interfaces.Repositories;
 
@@ -10,6 +11,21 @@ public interface ICharacteristicsRepository
     /// <param name="cancellationToken"></param>
     /// <returns>A Task of type IEnumerable of Characteristic</returns>
     public Task<IEnumerable<Characteristic>> GetAll(CancellationToken cancellationToken);
+
+    /// <summary>
+    /// Get all characteristic by a where in the database.
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns>A Task of type IEnumerable of Characteristic</returns>
+    public Task<IEnumerable<Characteristic>> Search(Expression<Func<Characteristic, bool>> predicate, CancellationToken cancellationToken);
+
+    /// <summary>
+    /// Get all characteristic by projectId in the database.
+    /// </summary>
+    /// <param name="projectId"></param>
+    /// <returns>A Task of type IEnumerable of Characteristic</returns>
+    Task<List<Characteristic>> GetCharacteristicsByProjectAsync(int projectId);
+
     /// <summary>
     /// Get a characteristic by Id
     /// </summary>

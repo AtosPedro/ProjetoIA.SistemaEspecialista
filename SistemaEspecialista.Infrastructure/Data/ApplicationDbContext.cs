@@ -12,7 +12,6 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
     public DbSet<Characteristic> Characteristics { get; set; }
     public DbSet<ObjectiveCharacteristic> ObjectiveCharacteristics { get; set; }
     public DbSet<Question> Questions { get; set; }
-    public DbSet<Log> Logs { get; set; }
     public override DatabaseFacade? Database => base.Database;
 
     public ApplicationDbContext() 

@@ -50,7 +50,7 @@
             this.characteristicPage = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvCharacteristics = new System.Windows.Forms.DataGridView();
             this.characteristicsToolStrip = new System.Windows.Forms.ToolStrip();
             this.addCharacteristicButton = new System.Windows.Forms.ToolStripButton();
             this.editCharacteristicButton = new System.Windows.Forms.ToolStripButton();
@@ -65,7 +65,7 @@
             this.characteristicPage.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCharacteristics)).BeginInit();
             this.characteristicsToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -178,6 +178,7 @@
             this.objectivePage.TabIndex = 1;
             this.objectivePage.Text = "Objetivos";
             this.objectivePage.UseVisualStyleBackColor = true;
+            this.objectivePage.Click += new System.EventHandler(this.objectivePage_Click);
             // 
             // objectivePageDGPanel
             // 
@@ -233,7 +234,7 @@
             this.deleteObjectiveButton.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.delete_icon_shallow;
             this.deleteObjectiveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.deleteObjectiveButton.Name = "deleteObjectiveButton";
-            this.deleteObjectiveButton.Size = new System.Drawing.Size(61, 22);
+            this.deleteObjectiveButton.Size = new System.Drawing.Size(62, 22);
             this.deleteObjectiveButton.Text = "Excluir";
             this.deleteObjectiveButton.Click += new System.EventHandler(this.deleteObjectiveButton_Click);
             // 
@@ -256,6 +257,7 @@
             this.characteristicPage.TabIndex = 2;
             this.characteristicPage.Text = "Características";
             this.characteristicPage.UseVisualStyleBackColor = true;
+            this.characteristicPage.Click += new System.EventHandler(this.characteristicPage_Click);
             // 
             // panel1
             // 
@@ -268,24 +270,24 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dataGridView2);
+            this.panel2.Controls.Add(this.dgvCharacteristics);
             this.panel2.Location = new System.Drawing.Point(5, 28);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(776, 358);
             this.panel2.TabIndex = 1;
             // 
-            // dataGridView2
+            // dgvCharacteristics
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(776, 358);
-            this.dataGridView2.TabIndex = 0;
+            this.dgvCharacteristics.AllowUserToAddRows = false;
+            this.dgvCharacteristics.AllowUserToDeleteRows = false;
+            this.dgvCharacteristics.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvCharacteristics.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCharacteristics.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCharacteristics.Location = new System.Drawing.Point(0, 0);
+            this.dgvCharacteristics.Name = "dgvCharacteristics";
+            this.dgvCharacteristics.ReadOnly = true;
+            this.dgvCharacteristics.Size = new System.Drawing.Size(776, 358);
+            this.dgvCharacteristics.TabIndex = 0;
             // 
             // characteristicsToolStrip
             // 
@@ -323,7 +325,7 @@
             this.deleteCharacteristicButton.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.delete_icon_shallow;
             this.deleteCharacteristicButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.deleteCharacteristicButton.Name = "deleteCharacteristicButton";
-            this.deleteCharacteristicButton.Size = new System.Drawing.Size(61, 22);
+            this.deleteCharacteristicButton.Size = new System.Drawing.Size(62, 22);
             this.deleteCharacteristicButton.Text = "Excluir";
             this.deleteCharacteristicButton.Click += new System.EventHandler(this.deleteCharacteristicButton_Click);
             // 
@@ -362,7 +364,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCharacteristics)).EndInit();
             this.characteristicsToolStrip.ResumeLayout(false);
             this.characteristicsToolStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -392,7 +394,7 @@
         private ToolStrip objectiveTabToolStrip;
         private Panel panel1;
         private Panel panel2;
-        private DataGridView dataGridView2;
+        private DataGridView dgvCharacteristics;
         private ToolStrip characteristicsToolStrip;
         private ToolStripButton addCharacteristicButton;
         private ToolStripButton editCharacteristicButton;

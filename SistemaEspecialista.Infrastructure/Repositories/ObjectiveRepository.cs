@@ -9,4 +9,10 @@ public class ObjectiveRepository : Repository<Objective>, IObjectiveRepository
     public ObjectiveRepository(IApplicationDbContext dbContext) : base(dbContext)
     {
     }
+
+    public async Task<List<Objective>> GetObjectivesByProjectAsync(int projectId)
+    {
+        return (await base.Search( objective => objective.ProjectId == projectId,
+            CancellationToken.None)).ToList();
+    }
 }

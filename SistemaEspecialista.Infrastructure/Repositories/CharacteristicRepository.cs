@@ -9,4 +9,10 @@ public class CharacteristicRepository : Repository<Characteristic>, ICharacteris
     public CharacteristicRepository(IApplicationDbContext dbContext) : base(dbContext)
     {
     }
+
+    public async Task<List<Characteristic>> GetCharacteristicsByProjectAsync(int projectId)
+    {
+        return (await base.Search(characteristic => characteristic.ProjectId == projectId,
+            CancellationToken.None)).ToList();
+    }
 }

@@ -7,17 +7,27 @@ namespace SistemaEspecialista.DesktopUI.Views
     public partial class ObjectiveDialogForm : Form
     {
         public Objective Objective { get; set; }
-
-        private readonly IObjectiveRepository _objectiveRepository;
-
         public int ProjectId { get; set; }
 
-        public ObjectiveDialogForm(IObjectiveRepository objectiveRepository, int projectId)
+        private readonly IObjectiveRepository _objectiveRepository;
+        
+        public ObjectiveDialogForm(
+            IObjectiveRepository objectiveRepository, 
+            int projectId,
+            Objective objective = null)
         {
-            Objective = new();
             _objectiveRepository = objectiveRepository;
             ProjectId = projectId;
+            Objective = objective ?? new();
+
             InitializeComponent();
+
+            if (objective != null)
+            {
+                txtObjectiveName.Text = objective.Name;
+                txtObjectiveDescription.Text = objective.Description;
+            }
+
         }
 
         private async void saveObjectiveBtn_Click(object sender, EventArgs e)
@@ -38,6 +48,8 @@ namespace SistemaEspecialista.DesktopUI.Views
                 }
 
                 this.DialogResult = DialogResult.OK;
+
+                return;
             }
             catch (Exception ex)
             {

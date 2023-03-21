@@ -9,4 +9,10 @@ public class ObjectiveCharacteristicRepository : Repository<ObjectiveCharacteris
     public ObjectiveCharacteristicRepository(IApplicationDbContext dbContext) : base(dbContext)
     {
     }
+
+    public async Task<List<ObjectiveCharacteristic>> GetObjectiveCharacteristicByProjectAsync(int projectId)
+    {
+        return (await base.Search(objectiveCharacteristic => objectiveCharacteristic.ProjectId == projectId,
+            CancellationToken.None)).ToList();
+    }
 }

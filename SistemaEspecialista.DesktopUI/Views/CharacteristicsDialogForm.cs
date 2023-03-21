@@ -1,19 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using SistemaEspecialista.Application.Interfaces.Repositories;
+using SistemaEspecialista.Domain.Entities;
 
 namespace SistemaEspecialista.DesktopUI.Views
 {
-    public partial class CharacteristicsDialog_Form : Form
+    public partial class CharacteristicsDialogForm : Form
     {
-        public CharacteristicsDialog_Form()
+        private ICharacteristicsRepository _characteristicsRepository;
+        private int _projectId;
+        private Characteristic _characteristic;
+
+        public CharacteristicsDialogForm(ICharacteristicsRepository characteristicsRepository, int id, Characteristic characteristic = null)
         {
+            _characteristicsRepository = characteristicsRepository;
+            _projectId = id;
+            _characteristic = characteristic;
+
             InitializeComponent();
         }
     }

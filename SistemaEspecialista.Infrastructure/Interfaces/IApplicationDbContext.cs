@@ -33,11 +33,6 @@ public interface IApplicationDbContext
     public DbSet<Question> Questions { get; set; }
     
     /// <summary>
-    /// Logs DbSet (Logs Table).
-    /// </summary>
-    public DbSet<Log> Logs { get; set; }
-
-    /// <summary>
     /// Alter the CreatedAt or Updated of the Entities depending on the action and commit the changes to the database.
     /// </summary>
     /// <param name="cancellationToken"></param>

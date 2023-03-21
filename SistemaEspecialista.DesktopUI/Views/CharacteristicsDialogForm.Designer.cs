@@ -1,6 +1,6 @@
 ﻿namespace SistemaEspecialista.DesktopUI.Views
 {
-    partial class CharacteristicsDialog_Form
+    partial class CharacteristicsDialogForm
     {
         /// <summary>
         /// Required designer variable.

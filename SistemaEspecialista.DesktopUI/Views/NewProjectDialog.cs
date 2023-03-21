@@ -1,5 +1,4 @@
-﻿using SistemaEspecialista.Application.DTOs.Projects;
-using SistemaEspecialista.Application.Interfaces.Repositories;
+﻿using SistemaEspecialista.Application.Interfaces.Repositories;
 using SistemaEspecialista.Domain.Entities;
 
 namespace SistemaEspecialista.DesktopUI.Views;
