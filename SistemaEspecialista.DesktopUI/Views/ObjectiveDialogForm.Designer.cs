@@ -28,70 +28,82 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtObjectiveName = new System.Windows.Forms.TextBox();
-            this.txtObjectiveDescription = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.saveObjectiveBtn = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            txtObjectiveName = new TextBox();
+            txtObjectiveDescription = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
+            saveObjectiveBtn = new Button();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            SuspendLayout();
             // 
             // txtObjectiveName
             // 
-            this.txtObjectiveName.Location = new System.Drawing.Point(50, 95);
-            this.txtObjectiveName.Name = "txtObjectiveName";
-            this.txtObjectiveName.Size = new System.Drawing.Size(397, 23);
-            this.txtObjectiveName.TabIndex = 0;
+            txtObjectiveName.Location = new Point(12, 43);
+            txtObjectiveName.Name = "txtObjectiveName";
+            txtObjectiveName.Size = new Size(270, 23);
+            txtObjectiveName.TabIndex = 0;
             // 
             // txtObjectiveDescription
             // 
-            this.txtObjectiveDescription.Location = new System.Drawing.Point(50, 163);
-            this.txtObjectiveDescription.Name = "txtObjectiveDescription";
-            this.txtObjectiveDescription.Size = new System.Drawing.Size(397, 23);
-            this.txtObjectiveDescription.TabIndex = 1;
+            txtObjectiveDescription.Location = new Point(314, 43);
+            txtObjectiveDescription.Name = "txtObjectiveDescription";
+            txtObjectiveDescription.Size = new Size(270, 23);
+            txtObjectiveDescription.TabIndex = 1;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Nome";            
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 25);
+            label1.Name = "label1";
+            label1.Size = new Size(40, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Nome";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 145);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Descrição";
+            label2.AutoSize = true;
+            label2.Location = new Point(314, 25);
+            label2.Name = "label2";
+            label2.Size = new Size(58, 15);
+            label2.TabIndex = 3;
+            label2.Text = "Descrição";
             // 
             // saveObjectiveBtn
             // 
-            this.saveObjectiveBtn.Location = new System.Drawing.Point(210, 217);
-            this.saveObjectiveBtn.Name = "saveObjectiveBtn";
-            this.saveObjectiveBtn.Size = new System.Drawing.Size(75, 23);
-            this.saveObjectiveBtn.TabIndex = 4;
-            this.saveObjectiveBtn.Text = "Salvar";
-            this.saveObjectiveBtn.UseVisualStyleBackColor = true;
-            this.saveObjectiveBtn.Click += new System.EventHandler(this.saveObjectiveBtn_Click);
+            saveObjectiveBtn.Location = new Point(417, 331);
+            saveObjectiveBtn.Name = "saveObjectiveBtn";
+            saveObjectiveBtn.Size = new Size(167, 41);
+            saveObjectiveBtn.TabIndex = 4;
+            saveObjectiveBtn.Text = "Salvar";
+            saveObjectiveBtn.UseVisualStyleBackColor = true;
+            saveObjectiveBtn.Click += saveObjectiveBtn_Click;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(12, 94);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(572, 231);
+            dataGridView1.TabIndex = 5;
             // 
             // ObjectiveDialogForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 274);
-            this.Controls.Add(this.saveObjectiveBtn);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtObjectiveDescription);
-            this.Controls.Add(this.txtObjectiveName);
-            this.Name = "ObjectiveDialogForm";
-            this.Text = "ObjectiveDialogForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(601, 383);
+            Controls.Add(dataGridView1);
+            Controls.Add(saveObjectiveBtn);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(txtObjectiveDescription);
+            Controls.Add(txtObjectiveName);
+            Name = "ObjectiveDialogForm";
+            Text = "Novo Objetivo";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -101,5 +113,6 @@
         private Label label1;
         private Label label2;
         private Button saveObjectiveBtn;
+        private DataGridView dataGridView1;
     }
 }

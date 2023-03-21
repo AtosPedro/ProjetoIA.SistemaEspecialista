@@ -37,7 +37,7 @@ namespace SistemaEspecialista.DesktopUI.Views
                     await _objectiveRepository.Update(Objective);
                 }
 
-                this.DialogResult =  DialogResult.OK;
+                this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
