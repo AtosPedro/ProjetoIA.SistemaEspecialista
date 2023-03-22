@@ -16,5 +16,10 @@ namespace SistemaEspecialista.DesktopUI.Views
         {
             InitializeComponent();
         }
+
+        private void objective_screen_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
