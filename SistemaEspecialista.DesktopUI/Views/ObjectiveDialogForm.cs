@@ -13,7 +13,7 @@ namespace SistemaEspecialista.DesktopUI.Views
         private readonly IObjectiveCharacteristicRepository _objectiveCharacteristicRepository;
         private readonly ICharacteristicsRepository _characteristicRepository;
 
-        private List<Characteristic> _characteristicsInMemory;
+        private List<Characteristic> _characteristicsInMemory = new();
 
         public ObjectiveDialogForm(
             IObjectiveRepository objectiveRepository,
@@ -35,6 +35,8 @@ namespace SistemaEspecialista.DesktopUI.Views
             {
                 txtObjectiveName.Text = objective.Name;
                 txtObjectiveDescription.Text = objective.Description;
+                dataGridView1.DataSource = (_objectiveCharacteristicRepository.GetObjectiveCharacteristicsWithData(w => 
+                    w.ObjectiveId == objective.Id)).Result.Select(w=> w.Characteristic).ToList();
             }
         }
 
@@ -70,7 +72,6 @@ namespace SistemaEspecialista.DesktopUI.Views
                 }
 
                 this.DialogResult = DialogResult.OK;
-
                 return;
             }
             catch (Exception ex)
@@ -92,12 +93,22 @@ namespace SistemaEspecialista.DesktopUI.Views
                     CancellationToken.None)).ToList();
 
                     var dbCharacteristics = characteristics.Select(obc => obc.Characteristic).ToList();
-                    foreach (var characteristic in dbCharacteristics)
+
+                    foreach (var item in dbCharacteristics)
                     {
-                        dbCharacteristics.Add(characteristic);
+                        if (!_characteristicsInMemory.Contains(item))
+                        {
+                            _characteristicsInMemory.Add(item);
+                        }
                     }
 
-                    dataGridView1.DataSource = dbCharacteristics;
+                    if (!_characteristicsInMemory.Contains(form.Characteristic))
+                    {
+                        _characteristicsInMemory.Add(form.Characteristic);
+                    }
+
+                    dataGridView1.DataSource = new List<Characteristic>();
+                    dataGridView1.DataSource = _characteristicsInMemory;
                 }
             }
         }

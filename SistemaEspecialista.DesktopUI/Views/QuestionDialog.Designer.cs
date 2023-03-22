@@ -38,7 +38,7 @@
             // title_assoc
             // 
             this.title_assoc.AutoSize = true;
-            this.title_assoc.Location = new System.Drawing.Point(247, 9);
+            this.title_assoc.Location = new System.Drawing.Point(252, 9);
             this.title_assoc.Name = "title_assoc";
             this.title_assoc.Size = new System.Drawing.Size(176, 15);
             this.title_assoc.TabIndex = 0;
@@ -52,7 +52,6 @@
             this.pgt_assoc.Size = new System.Drawing.Size(55, 15);
             this.pgt_assoc.TabIndex = 1;
             this.pgt_assoc.Text = "pergunta";
-            this.pgt_assoc.Click += new System.EventHandler(this.label2_Click);
             // 
             // true_bttn
             // 
@@ -62,6 +61,7 @@
             this.true_bttn.TabIndex = 4;
             this.true_bttn.Text = "Verdadeiro";
             this.true_bttn.UseVisualStyleBackColor = true;
+            this.true_bttn.Click += new System.EventHandler(this.true_bttn_Click);
             // 
             // continue_bttn
             // 
@@ -71,6 +71,7 @@
             this.continue_bttn.TabIndex = 5;
             this.continue_bttn.Text = "Continuar";
             this.continue_bttn.UseVisualStyleBackColor = true;
+            this.continue_bttn.Click += new System.EventHandler(this.continue_bttn_Click);
             // 
             // false_bttn
             // 
@@ -80,6 +81,7 @@
             this.false_bttn.TabIndex = 6;
             this.false_bttn.Text = "Falso";
             this.false_bttn.UseVisualStyleBackColor = true;
+            this.false_bttn.Click += new System.EventHandler(this.false_bttn_Click);
             // 
             // QuestionDialog
             // 

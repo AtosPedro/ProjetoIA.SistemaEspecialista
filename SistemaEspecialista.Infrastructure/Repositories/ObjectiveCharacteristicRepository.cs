@@ -1,6 +1,8 @@
-﻿using SistemaEspecialista.Application.Interfaces.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using SistemaEspecialista.Application.Interfaces.Repositories;
 using SistemaEspecialista.Domain.Entities;
 using SistemaEspecialista.Infrastructure.Interfaces;
+using System.Linq.Expressions;
 
 namespace SistemaEspecialista.Infrastructure.Repositories;
 
@@ -14,5 +16,15 @@ public class ObjectiveCharacteristicRepository : Repository<ObjectiveCharacteris
     {
         return (await base.Search(objectiveCharacteristic => objectiveCharacteristic.ProjectId == projectId,
             CancellationToken.None)).ToList();
+    }
+
+    public async Task<List<ObjectiveCharacteristic>> GetObjectiveCharacteristicsWithData(Expression<Func<ObjectiveCharacteristic, bool>> predicate)
+    {
+        return (await EntityDbSet
+            .AsNoTracking()
+            .Where(predicate)
+            .Include(w => w.Characteristic)
+            .Include(w => w.Characteristic.Question)
+            .ToListAsync());
     }
 }

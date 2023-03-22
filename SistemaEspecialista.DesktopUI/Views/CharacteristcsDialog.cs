@@ -16,6 +16,8 @@ namespace SistemaEspecialista.DesktopUI.Views
             InitializeComponent();
             var characteristicsList = (_characteristicsRepository.GetCharacteristicsByProjectAsync(projectId))?.Result;
             cmbCharacteristic.DataSource = characteristicsList ?? new List<Characteristic>();
+            cmbCharacteristic.DisplayMember = "Name";
+            cmbCharacteristic.ValueMember = "Id";
         }
 
         private void btnAddCharacteristic_Click(object sender, EventArgs e)

@@ -10,7 +10,7 @@ namespace SistemaEspecialista.DesktopUI.Views
         public QuestionDialogForm(int projectId, Question question = null)
         {
             _projectId = projectId;
-            Question = question;
+            Question = question ?? new();
             InitializeComponent();
 
             if (Question is not null)
@@ -23,7 +23,6 @@ namespace SistemaEspecialista.DesktopUI.Views
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Question = new();
             Question.ProjectId = _projectId;
             Question.Title = txtTitle.Text;
             Question.Description = txtDescription.Text;

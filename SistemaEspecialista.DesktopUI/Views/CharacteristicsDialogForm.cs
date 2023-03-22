@@ -97,16 +97,33 @@ namespace SistemaEspecialista.DesktopUI.Views
         {
             _characteristic.ProjectId = _projectId;
             _characteristic.Name = txtName.Text;
-            _characteristic.Name = txtDescription.Text;
+            _characteristic.Description = txtDescription.Text;
 
             try
             {
-                await _characteristicsRepository.Add(_characteristic, CancellationToken.None);
+
+                if (_characteristic.Id == DefaultValues.IdNullValue)
+                {
+                    await _characteristicsRepository.Add(_characteristic, CancellationToken.None);
+                }
+                else
+                {
+                    await _characteristicsRepository.Update(_characteristic);
+                }
 
                 if (_questionInMemory is not null)
                 {
                     _questionInMemory.CharacteristicId = _characteristic.Id;
-                    await _questionRepository.Add(_questionInMemory, CancellationToken.None);
+                    if (_questionInMemory.Id == DefaultValues.IdNullValue)
+                    {
+                        await _questionRepository.Add(_questionInMemory, CancellationToken.None);
+                    }
+                    else
+                    {
+
+                        await _questionRepository.Update(_questionInMemory);
+                    }
+
                 }
 
                 this.DialogResult = DialogResult.OK;

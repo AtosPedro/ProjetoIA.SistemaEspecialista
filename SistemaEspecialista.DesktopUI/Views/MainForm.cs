@@ -60,19 +60,17 @@ public partial class MainForm : Form
         }
     }
 
-    private async void saveToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-
-    }
-
     private void manualToolStripMenuItem_Click(object sender, EventArgs e)
     {
-
+        MessageBox.Show(this, "Um Sistema Especialista é um sistema que utiliza o conhecimento humano capturado num computador para resolver problemas que normalmente seriam resolvidos por especialistas humanos. Os sistemas bem concebidos imitam o processo de raciocínio que os especialistas utilizam para resolver problemas específicos.\n\n\n"
+                              + "Características - crie perguntas que serão feitas ao usuario, podem ser numericas, univaloradas ou multivaloradas a partir dessa seleção.\n\n"
+                              + "Objetivos - crie valores que serão resultados de uma condição aplicada pelas variaveis a partir dessa seleção.\n\n"
+                              + "Pergunta - Substitua o texto das variáveis apresentadas na tela do usuario através dessa seleção.\n\n", "Manual",MessageBoxButtons.OK);
     }
 
     private void devsToolStripMenuItem_Click(object sender, EventArgs e)
     {
-
+        MessageBox.Show(this, @"Atos Pedro, Leonardo Lamas,André Amorim,Tiago Morel", "Manual", MessageBoxButtons.OK);
     }
 
     #endregion
@@ -247,13 +245,56 @@ public partial class MainForm : Form
         }
     }
 
-    private void runBtn_Click(object sender, EventArgs e)
+    private async void runBtn_Click(object sender, EventArgs e)
     {
         using (AddObjectivesToRunDialog form = new AddObjectivesToRunDialog(_objectiveRepository, LoadedProject.Id))
         {
             if (form.ShowDialog() == DialogResult.OK)
             {
-                /// run inference
+                var characteristics = new List<Characteristic>();
+                foreach (var objective in form.ObjectivesToRun)
+                {
+                    var characteristicsByObjective = (await _objectiveCharacteristicRepository.GetObjectiveCharacteristicsWithData(obc => obc.ObjectiveId == objective.Id)).Select(w=> w.Characteristic);
+                    foreach (var chara in characteristicsByObjective)
+                    {
+                        if (!characteristics.Contains(chara))
+                        {
+                            characteristics.Add(chara);
+                        }
+                    }
+                }
+
+                foreach (var characteristic in characteristics)
+                {
+                    characteristic.Question = (await _questionRepository.Search(w => w.CharacteristicId == characteristic.Id, CancellationToken.None)).FirstOrDefault();
+                    using (QuestionDialog questionForm = new QuestionDialog(characteristic))
+                    {
+                        if (questionForm.ShowDialog() == DialogResult.OK)
+                        {
+                            characteristic.Status = questionForm.Characteristic.Status;
+                        }
+                    }
+                }
+                
+                Dictionary<string, int> pontuation = new Dictionary<string, int>();
+
+                foreach (var objective in form.ObjectivesToRun)
+                {
+                    pontuation.Add(objective.Name,0);
+                    var characteristicsByObjective = (await _objectiveCharacteristicRepository.GetObjectiveCharacteristicsWithData(obc => obc.ObjectiveId == objective.Id)).Select(w => w.Characteristic);
+                    foreach (var item in characteristicsByObjective)
+                    {
+                        var characteristicModified = characteristics.Where(w=>w.Id == item.Id).FirstOrDefault();
+                        if (characteristicModified is not null)
+                        {
+                            pontuation[objective.Name] += characteristicModified.Status == DefaultValues.Active ? 1 : 0;
+                        }
+                    }
+                }
+
+                var winner = pontuation.Where(w => w.Value == pontuation.Values.Max()).Select(w => w.Key).FirstOrDefault();
+
+                MessageBox.Show(this, $"O objetivo é {winner}", "", MessageBoxButtons.OK);
             }
         }
     }

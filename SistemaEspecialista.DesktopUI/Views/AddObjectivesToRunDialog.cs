@@ -27,6 +27,7 @@ namespace SistemaEspecialista.DesktopUI.Views
                     if (!_objectivesToRun.Contains(form.Objective))
                     {
                         _objectivesToRun.Add(form.Objective);
+                        objective_screen.DataSource = new List<Objective>();
                         objective_screen.DataSource = _objectivesToRun;
                     }
                 }
