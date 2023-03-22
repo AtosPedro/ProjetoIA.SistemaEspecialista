@@ -81,7 +81,11 @@ public partial class MainForm : Form
 
     private async void addObjectiveButton_Click(object sender, EventArgs e)
     {
-        using (ObjectiveDialogForm form = new ObjectiveDialogForm(_objectiveRepository, LoadedProject.Id))
+        using (ObjectiveDialogForm form = new ObjectiveDialogForm(
+            _objectiveRepository,
+            _objectiveCharacteristicRepository,
+            _characteristicsRepository,
+            LoadedProject.Id))
         {
             if (form.ShowDialog() == DialogResult.OK)
             {
@@ -104,7 +108,12 @@ public partial class MainForm : Form
 
         if (objective != null)
         {
-            using (ObjectiveDialogForm form = new ObjectiveDialogForm(_objectiveRepository, LoadedProject.Id, objective))
+            using (ObjectiveDialogForm form = new ObjectiveDialogForm(
+                _objectiveRepository,
+            _objectiveCharacteristicRepository,
+            _characteristicsRepository,
+            LoadedProject.Id,
+            objective))
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
@@ -179,16 +188,20 @@ public partial class MainForm : Form
         }
         else
         {
-            characteristic = (Characteristic)dgvCharacteristics?.Rows[dgvObjective?.SelectedCells[0]?.RowIndex ?? 0]?.DataBoundItem;
+            int rowindex = dgvCharacteristics.SelectedCells[0].RowIndex;
+            if (rowindex > -1)
+                characteristic = (Characteristic)dgvCharacteristics?.Rows[rowindex]?.DataBoundItem;
         }
-
-        using (CharacteristicsDialogForm form = new CharacteristicsDialogForm(_characteristicsRepository, _questionRepository, LoadedProject.Id, characteristic))
+        if (characteristic is not null)
         {
-            if (form.ShowDialog() == DialogResult.OK)
+            using (CharacteristicsDialogForm form = new CharacteristicsDialogForm(_characteristicsRepository, _questionRepository, LoadedProject.Id, characteristic))
             {
-                if (LoadedProject is not null)
+                if (form.ShowDialog() == DialogResult.OK)
                 {
-                    dgvCharacteristics.DataSource = await _characteristicsRepository.GetCharacteristicsByProjectAsync(LoadedProject.Id);
+                    if (LoadedProject is not null)
+                    {
+                        dgvCharacteristics.DataSource = await _characteristicsRepository.GetCharacteristicsByProjectAsync(LoadedProject.Id);
+                    }
                 }
             }
         }
@@ -231,6 +244,17 @@ public partial class MainForm : Form
         if (LoadedProject is not null)
         {
             dgvObjective.DataSource = await _objectiveRepository.GetObjectivesByProjectAsync(LoadedProject.Id);
+        }
+    }
+
+    private void runBtn_Click(object sender, EventArgs e)
+    {
+        using (AddObjectivesToRunDialog form = new AddObjectivesToRunDialog(_objectiveRepository, LoadedProject.Id))
+        {
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                /// run inference
+            }
         }
     }
 }

@@ -28,68 +28,92 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.objective_screen = new System.Windows.Forms.DataGridView();
-            this.cancel_bttn = new System.Windows.Forms.Button();
-            this.save_bttn = new System.Windows.Forms.Button();
-            this.objective_to_search = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.objective_screen)).BeginInit();
-            this.SuspendLayout();
+            objective_screen = new DataGridView();
+            cancel_bttn = new Button();
+            save_bttn = new Button();
+            objective_to_search = new Label();
+            btnAddObject = new Button();
+            button2 = new Button();
+            ((System.ComponentModel.ISupportInitialize)objective_screen).BeginInit();
+            SuspendLayout();
             // 
             // objective_screen
             // 
-            this.objective_screen.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.objective_screen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.objective_screen.GridColor = System.Drawing.SystemColors.ControlText;
-            this.objective_screen.Location = new System.Drawing.Point(13, 53);
-            this.objective_screen.Name = "objective_screen";
-            this.objective_screen.RowTemplate.Height = 25;
-            this.objective_screen.Size = new System.Drawing.Size(501, 248);
-            this.objective_screen.TabIndex = 0;
-            this.objective_screen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.objective_screen_CellContentClick);
+            objective_screen.BackgroundColor = SystemColors.ActiveCaption;
+            objective_screen.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            objective_screen.GridColor = SystemColors.ControlText;
+            objective_screen.Location = new Point(13, 53);
+            objective_screen.Name = "objective_screen";
+            objective_screen.RowTemplate.Height = 25;
+            objective_screen.Size = new Size(501, 200);
+            objective_screen.TabIndex = 0;
             // 
             // cancel_bttn
             // 
-            this.cancel_bttn.Location = new System.Drawing.Point(13, 329);
-            this.cancel_bttn.Name = "cancel_bttn";
-            this.cancel_bttn.Size = new System.Drawing.Size(186, 65);
-            this.cancel_bttn.TabIndex = 1;
-            this.cancel_bttn.Text = "Cancelar";
-            this.cancel_bttn.UseVisualStyleBackColor = true;
+            cancel_bttn.DialogResult = DialogResult.Cancel;
+            cancel_bttn.Location = new Point(13, 329);
+            cancel_bttn.Name = "cancel_bttn";
+            cancel_bttn.Size = new Size(186, 65);
+            cancel_bttn.TabIndex = 1;
+            cancel_bttn.Text = "Cancelar";
+            cancel_bttn.UseVisualStyleBackColor = true;
             // 
             // save_bttn
             // 
-            this.save_bttn.Location = new System.Drawing.Point(328, 329);
-            this.save_bttn.Name = "save_bttn";
-            this.save_bttn.Size = new System.Drawing.Size(186, 65);
-            this.save_bttn.TabIndex = 2;
-            this.save_bttn.Text = "Salvar";
-            this.save_bttn.UseVisualStyleBackColor = true;
+            save_bttn.Location = new Point(328, 329);
+            save_bttn.Name = "save_bttn";
+            save_bttn.Size = new Size(186, 65);
+            save_bttn.TabIndex = 2;
+            save_bttn.Text = "Run";
+            save_bttn.UseVisualStyleBackColor = true;
+            save_bttn.Click += run_bttn_Click;
             // 
             // objective_to_search
             // 
-            this.objective_to_search.AutoSize = true;
-            this.objective_to_search.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.objective_to_search.Location = new System.Drawing.Point(13, 21);
-            this.objective_to_search.Name = "objective_to_search";
-            this.objective_to_search.Size = new System.Drawing.Size(194, 17);
-            this.objective_to_search.TabIndex = 3;
-            this.objective_to_search.Text = "Escolha os objetivos para pesquisar";
+            objective_to_search.AutoSize = true;
+            objective_to_search.BorderStyle = BorderStyle.Fixed3D;
+            objective_to_search.Location = new Point(13, 21);
+            objective_to_search.Name = "objective_to_search";
+            objective_to_search.Size = new Size(194, 17);
+            objective_to_search.TabIndex = 3;
+            objective_to_search.Text = "Escolha os objetivos para pesquisar";
+            // 
+            // btnAddObject
+            // 
+            btnAddObject.Location = new Point(12, 259);
+            btnAddObject.Name = "btnAddObject";
+            btnAddObject.Size = new Size(186, 27);
+            btnAddObject.TabIndex = 4;
+            btnAddObject.Text = "Adicionar";
+            btnAddObject.UseVisualStyleBackColor = true;
+            btnAddObject.Click += btnAddObject_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(328, 258);
+            button2.Name = "button2";
+            button2.Size = new Size(186, 28);
+            button2.TabIndex = 5;
+            button2.Text = "Remover";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // AddObjectivesToRunDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 420);
-            this.Controls.Add(this.objective_to_search);
-            this.Controls.Add(this.save_bttn);
-            this.Controls.Add(this.cancel_bttn);
-            this.Controls.Add(this.objective_screen);
-            this.Name = "AddObjectivesToRunDialog";
-            this.Text = "Adicionar Objetivos";
-            ((System.ComponentModel.ISupportInitialize)(this.objective_screen)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(536, 420);
+            Controls.Add(button2);
+            Controls.Add(btnAddObject);
+            Controls.Add(objective_to_search);
+            Controls.Add(save_bttn);
+            Controls.Add(cancel_bttn);
+            Controls.Add(objective_screen);
+            Name = "AddObjectivesToRunDialog";
+            Text = "Adicionar Objetivos";
+            ((System.ComponentModel.ISupportInitialize)objective_screen).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -98,5 +122,7 @@
         private Button cancel_bttn;
         private Button save_bttn;
         private Label objective_to_search;
+        private Button btnAddObject;
+        private Button button2;
     }
 }

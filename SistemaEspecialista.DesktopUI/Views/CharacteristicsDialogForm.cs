@@ -1,6 +1,7 @@
 ﻿using SistemaEspecialista.Application.Interfaces.Repositories;
 using SistemaEspecialista.Domain.Entities;
 using SistemaEspecialista.Domain.Utils;
+using SistemaEspecialista.Infrastructure.Repositories;
 
 namespace SistemaEspecialista.DesktopUI.Views
 {
@@ -19,6 +20,7 @@ namespace SistemaEspecialista.DesktopUI.Views
             Characteristic characteristic = null)
         {
             _characteristicsRepository = characteristicsRepository;
+            _questionRepository = questionRepository;
             _projectId = id;
             _characteristic = characteristic ?? new();
             InitializeComponent();

@@ -10,18 +10,22 @@ namespace SistemaEspecialista.DesktopUI.Views
         public Objective Objective { get; set; }
         public ObjectivesDialog(IObjectiveRepository objectiveRepository, int projectId)
         {
-            InitializeComponent();
-
-            cmbObjective.DataSource = (_objectiveRepository.GetObjectivesByProjectAsync(projectId))?.Result?.ToList();
             _objectiveRepository = objectiveRepository;
+            InitializeComponent();
+            cmbObjective.DataSource = (_objectiveRepository.GetObjectivesByProjectAsync(projectId))?.Result?.ToList();
+            cmbObjective.DisplayMember = "Name";
+            cmbObjective.ValueMember = "Id";
         }
 
         private void btnAddObjective_Click(object sender, EventArgs e)
         {
-            if (cmbObjective.SelectedIndex == -1)
+            if (cmbObjective.SelectedIndex != -1)
             {
-                Objective = cmbObjective.SelectedItem as Objective;
+                Objective  = cmbObjective.SelectedItem as Objective;
             }
+
+            this.DialogResult = DialogResult.OK;
+            return;
         }
     }
 }

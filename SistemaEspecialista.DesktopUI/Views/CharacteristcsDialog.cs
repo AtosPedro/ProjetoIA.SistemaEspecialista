@@ -12,10 +12,10 @@ namespace SistemaEspecialista.DesktopUI.Views
             ICharacteristicsRepository characteristicsRepository,
             int projectId)
         {
-            InitializeComponent();
-
-            cmbCharacteristic.DataSource = (_characteristicsRepository.GetCharacteristicsByProjectAsync(projectId))?.Result?.ToList();
             _characteristicsRepository = characteristicsRepository;
+            InitializeComponent();
+            var characteristicsList = (_characteristicsRepository.GetCharacteristicsByProjectAsync(projectId))?.Result;
+            cmbCharacteristic.DataSource = characteristicsList ?? new List<Characteristic>();
         }
 
         private void btnAddCharacteristic_Click(object sender, EventArgs e)
@@ -23,6 +23,8 @@ namespace SistemaEspecialista.DesktopUI.Views
             if (cmbCharacteristic.SelectedIndex != -1)
             {
                 Characteristic = cmbCharacteristic.SelectedItem as Characteristic;
+                this.DialogResult = DialogResult.OK;
+                return;
             }
         }
     }

@@ -29,347 +29,332 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.topMenuToolStrip = new System.Windows.Forms.ToolStrip();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.manualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.devsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.homeTab = new System.Windows.Forms.TabControl();
-            this.homePage = new System.Windows.Forms.TabPage();
-            this.objectivePage = new System.Windows.Forms.TabPage();
-            this.objectivePageDGPanel = new System.Windows.Forms.Panel();
-            this.dgvObjective = new System.Windows.Forms.DataGridView();
-            this.objectiveTabToolStrip = new System.Windows.Forms.ToolStrip();
-            this.addObjectiveButton = new System.Windows.Forms.ToolStripButton();
-            this.editObjectiveButton = new System.Windows.Forms.ToolStripButton();
-            this.deleteObjectiveButton = new System.Windows.Forms.ToolStripButton();
-            this.refreshObjectiveListButton = new System.Windows.Forms.ToolStripButton();
-            this.characteristicPage = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvCharacteristics = new System.Windows.Forms.DataGridView();
-            this.characteristicsToolStrip = new System.Windows.Forms.ToolStrip();
-            this.addCharacteristicButton = new System.Windows.Forms.ToolStripButton();
-            this.editCharacteristicButton = new System.Windows.Forms.ToolStripButton();
-            this.deleteCharacteristicButton = new System.Windows.Forms.ToolStripButton();
-            this.refreshCharacteristicsListButton = new System.Windows.Forms.ToolStripButton();
-            this.topMenuToolStrip.SuspendLayout();
-            this.homeTab.SuspendLayout();
-            this.objectivePage.SuspendLayout();
-            this.objectivePageDGPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvObjective)).BeginInit();
-            this.objectiveTabToolStrip.SuspendLayout();
-            this.characteristicPage.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCharacteristics)).BeginInit();
-            this.characteristicsToolStrip.SuspendLayout();
-            this.SuspendLayout();
+            topMenuToolStrip = new ToolStrip();
+            toolStripDropDownButton1 = new ToolStripDropDownButton();
+            newToolStripMenuItem = new ToolStripMenuItem();
+            editToolStripMenuItem = new ToolStripMenuItem();
+            toolStripDropDownButton2 = new ToolStripDropDownButton();
+            manualToolStripMenuItem = new ToolStripMenuItem();
+            devsToolStripMenuItem = new ToolStripMenuItem();
+            toolStripButton1 = new ToolStripButton();
+            homeTab = new TabControl();
+            homePage = new TabPage();
+            objectivePage = new TabPage();
+            objectivePageDGPanel = new Panel();
+            dgvObjective = new DataGridView();
+            objectiveTabToolStrip = new ToolStrip();
+            addObjectiveButton = new ToolStripButton();
+            editObjectiveButton = new ToolStripButton();
+            deleteObjectiveButton = new ToolStripButton();
+            refreshObjectiveListButton = new ToolStripButton();
+            characteristicPage = new TabPage();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            dgvCharacteristics = new DataGridView();
+            characteristicsToolStrip = new ToolStrip();
+            addCharacteristicButton = new ToolStripButton();
+            editCharacteristicButton = new ToolStripButton();
+            deleteCharacteristicButton = new ToolStripButton();
+            refreshCharacteristicsListButton = new ToolStripButton();
+            topMenuToolStrip.SuspendLayout();
+            homeTab.SuspendLayout();
+            objectivePage.SuspendLayout();
+            objectivePageDGPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvObjective).BeginInit();
+            objectiveTabToolStrip.SuspendLayout();
+            characteristicPage.SuspendLayout();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCharacteristics).BeginInit();
+            characteristicsToolStrip.SuspendLayout();
+            SuspendLayout();
             // 
             // topMenuToolStrip
             // 
-            this.topMenuToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1,
-            this.toolStripDropDownButton2,
-            this.toolStripButton1});
-            this.topMenuToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.topMenuToolStrip.Name = "topMenuToolStrip";
-            this.topMenuToolStrip.Size = new System.Drawing.Size(800, 25);
-            this.topMenuToolStrip.TabIndex = 0;
-            this.topMenuToolStrip.Text = "Top Menu";
+            topMenuToolStrip.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1, toolStripDropDownButton2, toolStripButton1 });
+            topMenuToolStrip.Location = new Point(0, 0);
+            topMenuToolStrip.Name = "topMenuToolStrip";
+            topMenuToolStrip.Size = new Size(800, 25);
+            topMenuToolStrip.TabIndex = 0;
+            topMenuToolStrip.Text = "Top Menu";
             // 
             // toolStripDropDownButton1
             // 
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.editToolStripMenuItem});
-            this.toolStripDropDownButton1.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.description_icon_shallow;
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(73, 22);
-            this.toolStripDropDownButton1.Text = "Project";
+            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, editToolStripMenuItem });
+            toolStripDropDownButton1.Image = Properties.Resources.description_icon_shallow;
+            toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
+            toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            toolStripDropDownButton1.Size = new Size(73, 22);
+            toolStripDropDownButton1.Text = "Project";
             // 
             // newToolStripMenuItem
             // 
-            this.newToolStripMenuItem.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.add_icon_shallow;
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.newToolStripMenuItem.Text = "Novo";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            newToolStripMenuItem.Image = Properties.Resources.add_icon_shallow;
+            newToolStripMenuItem.Name = "newToolStripMenuItem";
+            newToolStripMenuItem.Size = new Size(103, 22);
+            newToolStripMenuItem.Text = "Novo";
+            newToolStripMenuItem.Click += newToolStripMenuItem_Click;
             // 
             // editToolStripMenuItem
             // 
-            this.editToolStripMenuItem.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.edit_icon_shallow;
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.editToolStripMenuItem.Text = "Abrir";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            editToolStripMenuItem.Image = Properties.Resources.edit_icon_shallow;
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(103, 22);
+            editToolStripMenuItem.Text = "Abrir";
+            editToolStripMenuItem.Click += editToolStripMenuItem_Click;
             // 
             // toolStripDropDownButton2
             // 
-            this.toolStripDropDownButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.manualToolStripMenuItem,
-            this.devsToolStripMenuItem});
-            this.toolStripDropDownButton2.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.info_icon_shallow;
-            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(69, 22);
-            this.toolStripDropDownButton2.Text = "About";
-            this.toolStripDropDownButton2.ToolTipText = "About";
+            toolStripDropDownButton2.Alignment = ToolStripItemAlignment.Right;
+            toolStripDropDownButton2.DropDownItems.AddRange(new ToolStripItem[] { manualToolStripMenuItem, devsToolStripMenuItem });
+            toolStripDropDownButton2.Image = Properties.Resources.info_icon_shallow;
+            toolStripDropDownButton2.ImageTransparentColor = Color.Magenta;
+            toolStripDropDownButton2.Name = "toolStripDropDownButton2";
+            toolStripDropDownButton2.Size = new Size(69, 22);
+            toolStripDropDownButton2.Text = "About";
+            toolStripDropDownButton2.ToolTipText = "About";
             // 
             // manualToolStripMenuItem
             // 
-            this.manualToolStripMenuItem.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.question_mark_icon_shallow;
-            this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.manualToolStripMenuItem.Text = "Manual";
-            this.manualToolStripMenuItem.Click += new System.EventHandler(this.manualToolStripMenuItem_Click);
+            manualToolStripMenuItem.Image = Properties.Resources.question_mark_icon_shallow;
+            manualToolStripMenuItem.Name = "manualToolStripMenuItem";
+            manualToolStripMenuItem.Size = new Size(114, 22);
+            manualToolStripMenuItem.Text = "Manual";
+            manualToolStripMenuItem.Click += manualToolStripMenuItem_Click;
             // 
             // devsToolStripMenuItem
             // 
-            this.devsToolStripMenuItem.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.code_icon_shallow;
-            this.devsToolStripMenuItem.Name = "devsToolStripMenuItem";
-            this.devsToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.devsToolStripMenuItem.Text = "Devs";
-            this.devsToolStripMenuItem.Click += new System.EventHandler(this.devsToolStripMenuItem_Click);
+            devsToolStripMenuItem.Image = Properties.Resources.code_icon_shallow;
+            devsToolStripMenuItem.Name = "devsToolStripMenuItem";
+            devsToolStripMenuItem.Size = new Size(114, 22);
+            devsToolStripMenuItem.Text = "Devs";
+            devsToolStripMenuItem.Click += devsToolStripMenuItem_Click;
             // 
             // toolStripButton1
             // 
-            this.toolStripButton1.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.play_button_shallow;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(48, 22);
-            this.toolStripButton1.Text = "Run";
+            toolStripButton1.Image = Properties.Resources.play_button_shallow;
+            toolStripButton1.ImageTransparentColor = Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new Size(48, 22);
+            toolStripButton1.Text = "Run";
+            toolStripButton1.Click += runBtn_Click;
             // 
             // homeTab
             // 
-            this.homeTab.Controls.Add(this.homePage);
-            this.homeTab.Controls.Add(this.objectivePage);
-            this.homeTab.Controls.Add(this.characteristicPage);
-            this.homeTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.homeTab.Location = new System.Drawing.Point(0, 25);
-            this.homeTab.Name = "homeTab";
-            this.homeTab.SelectedIndex = 0;
-            this.homeTab.Size = new System.Drawing.Size(800, 425);
-            this.homeTab.TabIndex = 3;
+            homeTab.Controls.Add(homePage);
+            homeTab.Controls.Add(objectivePage);
+            homeTab.Controls.Add(characteristicPage);
+            homeTab.Dock = DockStyle.Fill;
+            homeTab.Location = new Point(0, 25);
+            homeTab.Name = "homeTab";
+            homeTab.SelectedIndex = 0;
+            homeTab.Size = new Size(800, 425);
+            homeTab.TabIndex = 3;
             // 
             // homePage
             // 
-            this.homePage.Location = new System.Drawing.Point(4, 24);
-            this.homePage.Name = "homePage";
-            this.homePage.Padding = new System.Windows.Forms.Padding(3);
-            this.homePage.Size = new System.Drawing.Size(792, 397);
-            this.homePage.TabIndex = 0;
-            this.homePage.Text = "Home";
-            this.homePage.UseVisualStyleBackColor = true;
+            homePage.Location = new Point(4, 24);
+            homePage.Name = "homePage";
+            homePage.Padding = new Padding(3);
+            homePage.Size = new Size(792, 397);
+            homePage.TabIndex = 0;
+            homePage.Text = "Home";
+            homePage.UseVisualStyleBackColor = true;
             // 
             // objectivePage
             // 
-            this.objectivePage.Controls.Add(this.objectivePageDGPanel);
-            this.objectivePage.Controls.Add(this.objectiveTabToolStrip);
-            this.objectivePage.Location = new System.Drawing.Point(4, 24);
-            this.objectivePage.Name = "objectivePage";
-            this.objectivePage.Padding = new System.Windows.Forms.Padding(3);
-            this.objectivePage.Size = new System.Drawing.Size(792, 397);
-            this.objectivePage.TabIndex = 1;
-            this.objectivePage.Text = "Objetivos";
-            this.objectivePage.UseVisualStyleBackColor = true;
-            this.objectivePage.Click += new System.EventHandler(this.objectivePage_Click);
+            objectivePage.Controls.Add(objectivePageDGPanel);
+            objectivePage.Controls.Add(objectiveTabToolStrip);
+            objectivePage.Location = new Point(4, 24);
+            objectivePage.Name = "objectivePage";
+            objectivePage.Padding = new Padding(3);
+            objectivePage.Size = new Size(792, 397);
+            objectivePage.TabIndex = 1;
+            objectivePage.Text = "Objetivos";
+            objectivePage.UseVisualStyleBackColor = true;
+            objectivePage.Click += objectivePage_Click;
             // 
             // objectivePageDGPanel
             // 
-            this.objectivePageDGPanel.Controls.Add(this.dgvObjective);
-            this.objectivePageDGPanel.Location = new System.Drawing.Point(8, 31);
-            this.objectivePageDGPanel.Name = "objectivePageDGPanel";
-            this.objectivePageDGPanel.Size = new System.Drawing.Size(776, 358);
-            this.objectivePageDGPanel.TabIndex = 1;
+            objectivePageDGPanel.Controls.Add(dgvObjective);
+            objectivePageDGPanel.Location = new Point(8, 31);
+            objectivePageDGPanel.Name = "objectivePageDGPanel";
+            objectivePageDGPanel.Size = new Size(776, 358);
+            objectivePageDGPanel.TabIndex = 1;
             // 
             // dgvObjective
             // 
-            this.dgvObjective.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvObjective.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvObjective.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvObjective.Location = new System.Drawing.Point(0, 0);
-            this.dgvObjective.Name = "dgvObjective";
-            this.dgvObjective.Size = new System.Drawing.Size(776, 358);
-            this.dgvObjective.TabIndex = 0;
+            dgvObjective.BackgroundColor = SystemColors.ControlLight;
+            dgvObjective.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvObjective.Dock = DockStyle.Fill;
+            dgvObjective.Location = new Point(0, 0);
+            dgvObjective.Name = "dgvObjective";
+            dgvObjective.Size = new Size(776, 358);
+            dgvObjective.TabIndex = 0;
             // 
             // objectiveTabToolStrip
             // 
-            this.objectiveTabToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addObjectiveButton,
-            this.editObjectiveButton,
-            this.deleteObjectiveButton,
-            this.refreshObjectiveListButton});
-            this.objectiveTabToolStrip.Location = new System.Drawing.Point(3, 3);
-            this.objectiveTabToolStrip.Name = "objectiveTabToolStrip";
-            this.objectiveTabToolStrip.Size = new System.Drawing.Size(786, 25);
-            this.objectiveTabToolStrip.TabIndex = 0;
-            this.objectiveTabToolStrip.Text = "toolStrip1";
+            objectiveTabToolStrip.Items.AddRange(new ToolStripItem[] { addObjectiveButton, editObjectiveButton, deleteObjectiveButton, refreshObjectiveListButton });
+            objectiveTabToolStrip.Location = new Point(3, 3);
+            objectiveTabToolStrip.Name = "objectiveTabToolStrip";
+            objectiveTabToolStrip.Size = new Size(786, 25);
+            objectiveTabToolStrip.TabIndex = 0;
+            objectiveTabToolStrip.Text = "toolStrip1";
             // 
             // addObjectiveButton
             // 
-            this.addObjectiveButton.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.add_icon_shallow;
-            this.addObjectiveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.addObjectiveButton.Name = "addObjectiveButton";
-            this.addObjectiveButton.Size = new System.Drawing.Size(78, 22);
-            this.addObjectiveButton.Text = "Adicionar";
-            this.addObjectiveButton.Click += new System.EventHandler(this.addObjectiveButton_Click);
+            addObjectiveButton.Image = Properties.Resources.add_icon_shallow;
+            addObjectiveButton.ImageTransparentColor = Color.Magenta;
+            addObjectiveButton.Name = "addObjectiveButton";
+            addObjectiveButton.Size = new Size(78, 22);
+            addObjectiveButton.Text = "Adicionar";
+            addObjectiveButton.Click += addObjectiveButton_Click;
             // 
             // editObjectiveButton
             // 
-            this.editObjectiveButton.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.edit_icon_shallow;
-            this.editObjectiveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.editObjectiveButton.Name = "editObjectiveButton";
-            this.editObjectiveButton.Size = new System.Drawing.Size(57, 22);
-            this.editObjectiveButton.Text = "Editar";
-            this.editObjectiveButton.Click += new System.EventHandler(this.editObjectiveButton_Click);
+            editObjectiveButton.Image = Properties.Resources.edit_icon_shallow;
+            editObjectiveButton.ImageTransparentColor = Color.Magenta;
+            editObjectiveButton.Name = "editObjectiveButton";
+            editObjectiveButton.Size = new Size(57, 22);
+            editObjectiveButton.Text = "Editar";
+            editObjectiveButton.Click += editObjectiveButton_Click;
             // 
             // deleteObjectiveButton
             // 
-            this.deleteObjectiveButton.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.delete_icon_shallow;
-            this.deleteObjectiveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.deleteObjectiveButton.Name = "deleteObjectiveButton";
-            this.deleteObjectiveButton.Size = new System.Drawing.Size(61, 22);
-            this.deleteObjectiveButton.Text = "Excluir";
-            this.deleteObjectiveButton.Click += new System.EventHandler(this.deleteObjectiveButton_Click);
+            deleteObjectiveButton.Image = Properties.Resources.delete_icon_shallow;
+            deleteObjectiveButton.ImageTransparentColor = Color.Magenta;
+            deleteObjectiveButton.Name = "deleteObjectiveButton";
+            deleteObjectiveButton.Size = new Size(62, 22);
+            deleteObjectiveButton.Text = "Excluir";
+            deleteObjectiveButton.Click += deleteObjectiveButton_Click;
             // 
             // refreshObjectiveListButton
             // 
-            this.refreshObjectiveListButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.refreshObjectiveListButton.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.refresh_icon_shallow;
-            this.refreshObjectiveListButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.refreshObjectiveListButton.Name = "refreshObjectiveListButton";
-            this.refreshObjectiveListButton.Size = new System.Drawing.Size(97, 22);
-            this.refreshObjectiveListButton.Text = "Atualizar lista";
-            this.refreshObjectiveListButton.Click += new System.EventHandler(this.refreshObjectiveListButton_Click);
+            refreshObjectiveListButton.Alignment = ToolStripItemAlignment.Right;
+            refreshObjectiveListButton.Image = Properties.Resources.refresh_icon_shallow;
+            refreshObjectiveListButton.ImageTransparentColor = Color.Magenta;
+            refreshObjectiveListButton.Name = "refreshObjectiveListButton";
+            refreshObjectiveListButton.Size = new Size(97, 22);
+            refreshObjectiveListButton.Text = "Atualizar lista";
+            refreshObjectiveListButton.Click += refreshObjectiveListButton_Click;
             // 
             // characteristicPage
             // 
-            this.characteristicPage.Controls.Add(this.panel1);
-            this.characteristicPage.Location = new System.Drawing.Point(4, 24);
-            this.characteristicPage.Name = "characteristicPage";
-            this.characteristicPage.Size = new System.Drawing.Size(792, 397);
-            this.characteristicPage.TabIndex = 2;
-            this.characteristicPage.Text = "Características";
-            this.characteristicPage.UseVisualStyleBackColor = true;
-            this.characteristicPage.Click += new System.EventHandler(this.characteristicPage_Click);
+            characteristicPage.Controls.Add(panel1);
+            characteristicPage.Location = new Point(4, 24);
+            characteristicPage.Name = "characteristicPage";
+            characteristicPage.Size = new Size(792, 397);
+            characteristicPage.TabIndex = 2;
+            characteristicPage.Text = "Características";
+            characteristicPage.UseVisualStyleBackColor = true;
+            characteristicPage.Click += characteristicPage_Click;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.characteristicsToolStrip);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(786, 386);
-            this.panel1.TabIndex = 2;
+            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(characteristicsToolStrip);
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(786, 386);
+            panel1.TabIndex = 2;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dgvCharacteristics);
-            this.panel2.Location = new System.Drawing.Point(5, 28);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(776, 358);
-            this.panel2.TabIndex = 1;
+            panel2.Controls.Add(dgvCharacteristics);
+            panel2.Location = new Point(5, 28);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(776, 358);
+            panel2.TabIndex = 1;
             // 
             // dgvCharacteristics
             // 
-            this.dgvCharacteristics.AllowUserToAddRows = false;
-            this.dgvCharacteristics.AllowUserToDeleteRows = false;
-            this.dgvCharacteristics.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvCharacteristics.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCharacteristics.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCharacteristics.Location = new System.Drawing.Point(0, 0);
-            this.dgvCharacteristics.Name = "dgvCharacteristics";
-            this.dgvCharacteristics.ReadOnly = true;
-            this.dgvCharacteristics.Size = new System.Drawing.Size(776, 358);
-            this.dgvCharacteristics.TabIndex = 0;
+            dgvCharacteristics.AllowUserToAddRows = false;
+            dgvCharacteristics.AllowUserToDeleteRows = false;
+            dgvCharacteristics.BackgroundColor = SystemColors.ControlLight;
+            dgvCharacteristics.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCharacteristics.Dock = DockStyle.Fill;
+            dgvCharacteristics.Location = new Point(0, 0);
+            dgvCharacteristics.Name = "dgvCharacteristics";
+            dgvCharacteristics.ReadOnly = true;
+            dgvCharacteristics.Size = new Size(776, 358);
+            dgvCharacteristics.TabIndex = 0;
             // 
             // characteristicsToolStrip
             // 
-            this.characteristicsToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addCharacteristicButton,
-            this.editCharacteristicButton,
-            this.deleteCharacteristicButton,
-            this.refreshCharacteristicsListButton});
-            this.characteristicsToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.characteristicsToolStrip.Name = "characteristicsToolStrip";
-            this.characteristicsToolStrip.Size = new System.Drawing.Size(786, 25);
-            this.characteristicsToolStrip.TabIndex = 0;
-            this.characteristicsToolStrip.Text = "toolStrip1";
+            characteristicsToolStrip.Items.AddRange(new ToolStripItem[] { addCharacteristicButton, editCharacteristicButton, deleteCharacteristicButton, refreshCharacteristicsListButton });
+            characteristicsToolStrip.Location = new Point(0, 0);
+            characteristicsToolStrip.Name = "characteristicsToolStrip";
+            characteristicsToolStrip.Size = new Size(786, 25);
+            characteristicsToolStrip.TabIndex = 0;
+            characteristicsToolStrip.Text = "toolStrip1";
             // 
             // addCharacteristicButton
             // 
-            this.addCharacteristicButton.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.add_icon_shallow;
-            this.addCharacteristicButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.addCharacteristicButton.Name = "addCharacteristicButton";
-            this.addCharacteristicButton.Size = new System.Drawing.Size(78, 22);
-            this.addCharacteristicButton.Text = "Adicionar";
-            this.addCharacteristicButton.Click += new System.EventHandler(this.addCharacteristicButton_Click);
+            addCharacteristicButton.Image = Properties.Resources.add_icon_shallow;
+            addCharacteristicButton.ImageTransparentColor = Color.Magenta;
+            addCharacteristicButton.Name = "addCharacteristicButton";
+            addCharacteristicButton.Size = new Size(78, 22);
+            addCharacteristicButton.Text = "Adicionar";
+            addCharacteristicButton.Click += addCharacteristicButton_Click;
             // 
             // editCharacteristicButton
             // 
-            this.editCharacteristicButton.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.edit_icon_shallow;
-            this.editCharacteristicButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.editCharacteristicButton.Name = "editCharacteristicButton";
-            this.editCharacteristicButton.Size = new System.Drawing.Size(57, 22);
-            this.editCharacteristicButton.Text = "Editar";
-            this.editCharacteristicButton.Click += new System.EventHandler(this.editCharacteristicButton_Click);
+            editCharacteristicButton.Image = Properties.Resources.edit_icon_shallow;
+            editCharacteristicButton.ImageTransparentColor = Color.Magenta;
+            editCharacteristicButton.Name = "editCharacteristicButton";
+            editCharacteristicButton.Size = new Size(57, 22);
+            editCharacteristicButton.Text = "Editar";
+            editCharacteristicButton.Click += editCharacteristicButton_Click;
             // 
             // deleteCharacteristicButton
             // 
-            this.deleteCharacteristicButton.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.delete_icon_shallow;
-            this.deleteCharacteristicButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.deleteCharacteristicButton.Name = "deleteCharacteristicButton";
-            this.deleteCharacteristicButton.Size = new System.Drawing.Size(61, 22);
-            this.deleteCharacteristicButton.Text = "Excluir";
-            this.deleteCharacteristicButton.Click += new System.EventHandler(this.deleteCharacteristicButton_Click);
+            deleteCharacteristicButton.Image = Properties.Resources.delete_icon_shallow;
+            deleteCharacteristicButton.ImageTransparentColor = Color.Magenta;
+            deleteCharacteristicButton.Name = "deleteCharacteristicButton";
+            deleteCharacteristicButton.Size = new Size(62, 22);
+            deleteCharacteristicButton.Text = "Excluir";
+            deleteCharacteristicButton.Click += deleteCharacteristicButton_Click;
             // 
             // refreshCharacteristicsListButton
             // 
-            this.refreshCharacteristicsListButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.refreshCharacteristicsListButton.Image = global::SistemaEspecialista.DesktopUI.Properties.Resources.refresh_icon_shallow;
-            this.refreshCharacteristicsListButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.refreshCharacteristicsListButton.Name = "refreshCharacteristicsListButton";
-            this.refreshCharacteristicsListButton.Size = new System.Drawing.Size(97, 22);
-            this.refreshCharacteristicsListButton.Text = "Atualizar lista";
-            this.refreshCharacteristicsListButton.Click += new System.EventHandler(this.refreshCharacteristicsListButton_Click);
+            refreshCharacteristicsListButton.Alignment = ToolStripItemAlignment.Right;
+            refreshCharacteristicsListButton.Image = Properties.Resources.refresh_icon_shallow;
+            refreshCharacteristicsListButton.ImageTransparentColor = Color.Magenta;
+            refreshCharacteristicsListButton.Name = "refreshCharacteristicsListButton";
+            refreshCharacteristicsListButton.Size = new Size(97, 22);
+            refreshCharacteristicsListButton.Text = "Atualizar lista";
+            refreshCharacteristicsListButton.Click += refreshCharacteristicsListButton_Click;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.homeTab);
-            this.Controls.Add(this.topMenuToolStrip);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(816, 489);
-            this.MinimumSize = new System.Drawing.Size(816, 489);
-            this.Name = "MainForm";
-            this.Text = "XPecialist IDE";
-            this.topMenuToolStrip.ResumeLayout(false);
-            this.topMenuToolStrip.PerformLayout();
-            this.homeTab.ResumeLayout(false);
-            this.objectivePage.ResumeLayout(false);
-            this.objectivePage.PerformLayout();
-            this.objectivePageDGPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvObjective)).EndInit();
-            this.objectiveTabToolStrip.ResumeLayout(false);
-            this.objectiveTabToolStrip.PerformLayout();
-            this.characteristicPage.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCharacteristics)).EndInit();
-            this.characteristicsToolStrip.ResumeLayout(false);
-            this.characteristicsToolStrip.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(homeTab);
+            Controls.Add(topMenuToolStrip);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximumSize = new Size(816, 489);
+            MinimumSize = new Size(816, 489);
+            Name = "MainForm";
+            Text = "XPecialist IDE";
+            topMenuToolStrip.ResumeLayout(false);
+            topMenuToolStrip.PerformLayout();
+            homeTab.ResumeLayout(false);
+            objectivePage.ResumeLayout(false);
+            objectivePage.PerformLayout();
+            objectivePageDGPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvObjective).EndInit();
+            objectiveTabToolStrip.ResumeLayout(false);
+            objectiveTabToolStrip.PerformLayout();
+            characteristicPage.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvCharacteristics).EndInit();
+            characteristicsToolStrip.ResumeLayout(false);
+            characteristicsToolStrip.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
