@@ -11,6 +11,7 @@ namespace SistemaEspecialista.DesktopUI.Views
         {
             _projectId = projectId;
             Question = question;
+            InitializeComponent();
 
             if (Question is not null)
             {
@@ -18,7 +19,6 @@ namespace SistemaEspecialista.DesktopUI.Views
                 txtDescription.Text = Question.Description;
             }
 
-            InitializeComponent();
         }
 
         private void btnSave_Click(object sender, EventArgs e)

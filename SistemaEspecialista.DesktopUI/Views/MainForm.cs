@@ -27,7 +27,11 @@ public partial class MainForm : Form
 
         LoadedProject = _projectRepository.GetAll(CancellationToken.None)?.Result?.LastOrDefault();
         InitializeComponent();
-        Text = $"{AppConstants.AppTitle} ({LoadedProject.Name})";
+        if (LoadedProject is not null)
+        {
+            Text = $"{AppConstants.AppTitle} ({LoadedProject?.Name})";
+
+        }
     }
 
     #region Menu
@@ -125,13 +129,19 @@ public partial class MainForm : Form
         if (objective != null)
         {
             await _objectiveRepository.Remove(objective);
-            dgvObjective.DataSource = await _objectiveRepository.GetObjectivesByProjectAsync(LoadedProject.Id);
+            if (LoadedProject is not null)
+            {
+                dgvObjective.DataSource = await _objectiveRepository.GetObjectivesByProjectAsync(LoadedProject.Id);
+            }
         }
     }
 
     private async void refreshObjectiveListButton_Click(object sender, EventArgs e)
     {
-        dgvObjective.DataSource = await _objectiveRepository.GetObjectivesByProjectAsync(LoadedProject.Id);
+        if (LoadedProject is not null)
+        {
+            dgvObjective.DataSource = await _objectiveRepository.GetObjectivesByProjectAsync(LoadedProject.Id);
+        }
     }
 
     #endregion
@@ -140,7 +150,10 @@ public partial class MainForm : Form
 
     private async void refreshCharacteristicsListButton_Click(object sender, EventArgs e)
     {
-        dgvCharacteristics.DataSource = await _characteristicsRepository.GetCharacteristicsByProjectAsync(LoadedProject.Id);
+        if (LoadedProject is not null)
+        {
+            dgvCharacteristics.DataSource = await _characteristicsRepository.GetCharacteristicsByProjectAsync(LoadedProject.Id);
+        }
     }
 
     private async void addCharacteristicButton_Click(object sender, EventArgs e)
@@ -149,7 +162,10 @@ public partial class MainForm : Form
         {
             if (form.ShowDialog() == DialogResult.OK)
             {
-                dgvCharacteristics.DataSource = await _characteristicsRepository.GetCharacteristicsByProjectAsync(LoadedProject.Id);
+                if (LoadedProject is not null)
+                {
+                    dgvCharacteristics.DataSource = await _characteristicsRepository.GetCharacteristicsByProjectAsync(LoadedProject.Id);
+                }
             }
         }
     }
@@ -170,7 +186,10 @@ public partial class MainForm : Form
         {
             if (form.ShowDialog() == DialogResult.OK)
             {
-                dgvCharacteristics.DataSource = await _characteristicsRepository.GetCharacteristicsByProjectAsync(LoadedProject.Id);
+                if (LoadedProject is not null)
+                {
+                    dgvCharacteristics.DataSource = await _characteristicsRepository.GetCharacteristicsByProjectAsync(LoadedProject.Id);
+                }
             }
         }
     }
@@ -190,7 +209,10 @@ public partial class MainForm : Form
         if (characteristic != null)
         {
             await _characteristicsRepository.Remove(characteristic);
-            dgvObjective.DataSource = await _objectiveRepository.GetObjectivesByProjectAsync(LoadedProject.Id);
+            if (LoadedProject is not null)
+            {
+                dgvObjective.DataSource = await _objectiveRepository.GetObjectivesByProjectAsync(LoadedProject.Id);
+            }
         }
     }
 
@@ -198,11 +220,17 @@ public partial class MainForm : Form
 
     private async void characteristicPage_Click(object sender, EventArgs e)
     {
-        dgvCharacteristics.DataSource = await _characteristicsRepository.GetCharacteristicsByProjectAsync(LoadedProject.Id);
+        if (LoadedProject is not null)
+        {
+            dgvCharacteristics.DataSource = await _characteristicsRepository.GetCharacteristicsByProjectAsync(LoadedProject.Id);
+        }
     }
 
     private async void objectivePage_Click(object sender, EventArgs e)
     {
-        dgvObjective.DataSource = await _objectiveRepository.GetObjectivesByProjectAsync(LoadedProject.Id);
+        if (LoadedProject is not null)
+        {
+            dgvObjective.DataSource = await _objectiveRepository.GetObjectivesByProjectAsync(LoadedProject.Id);
+        }
     }
 }

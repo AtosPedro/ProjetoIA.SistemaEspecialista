@@ -10,9 +10,9 @@ namespace SistemaEspecialista.DesktopUI.Views
         public int ProjectId { get; set; }
 
         private readonly IObjectiveRepository _objectiveRepository;
-        
+
         public ObjectiveDialogForm(
-            IObjectiveRepository objectiveRepository, 
+            IObjectiveRepository objectiveRepository,
             int projectId,
             Objective objective = null)
         {
@@ -27,7 +27,6 @@ namespace SistemaEspecialista.DesktopUI.Views
                 txtObjectiveName.Text = objective.Name;
                 txtObjectiveDescription.Text = objective.Description;
             }
-
         }
 
         private async void saveObjectiveBtn_Click(object sender, EventArgs e)
@@ -57,6 +56,22 @@ namespace SistemaEspecialista.DesktopUI.Views
             }
 
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void btnAddCharacteristic_Click(object sender, EventArgs e)
+        {
+            using (CharacteristcsDialog form = new CharacteristcsDialog())
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
+        }
+
+        private void btnDeleteCharacteristic_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
