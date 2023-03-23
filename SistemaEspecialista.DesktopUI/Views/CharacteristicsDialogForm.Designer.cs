@@ -28,142 +28,143 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtDescription = new System.Windows.Forms.TextBox();
-            this.dgvQuestion = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnAddQuestion = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnEditQuestion = new System.Windows.Forms.Button();
-            this.btnDeleteQuestion = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvQuestion)).BeginInit();
-            this.SuspendLayout();
+            txtName = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
+            txtDescription = new TextBox();
+            dgvQuestion = new DataGridView();
+            label3 = new Label();
+            btnAddQuestion = new Button();
+            btnCancel = new Button();
+            btnSave = new Button();
+            btnEditQuestion = new Button();
+            btnDeleteQuestion = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvQuestion).BeginInit();
+            SuspendLayout();
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(12, 59);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(250, 23);
-            this.txtName.TabIndex = 0;
+            txtName.Location = new Point(12, 59);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(250, 23);
+            txtName.TabIndex = 0;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Nome";
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 41);
+            label1.Name = "label1";
+            label1.Size = new Size(40, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Nome";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(347, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Descrição";
+            label2.AutoSize = true;
+            label2.Location = new Point(347, 41);
+            label2.Name = "label2";
+            label2.Size = new Size(58, 15);
+            label2.TabIndex = 3;
+            label2.Text = "Descrição";
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(347, 59);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(256, 23);
-            this.txtDescription.TabIndex = 2;
+            txtDescription.Location = new Point(347, 59);
+            txtDescription.Name = "txtDescription";
+            txtDescription.Size = new Size(256, 23);
+            txtDescription.TabIndex = 2;
             // 
             // dgvQuestion
             // 
-            this.dgvQuestion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvQuestion.Location = new System.Drawing.Point(12, 126);
-            this.dgvQuestion.Name = "dgvQuestion";
-            this.dgvQuestion.RowTemplate.Height = 25;
-            this.dgvQuestion.Size = new System.Drawing.Size(591, 110);
-            this.dgvQuestion.TabIndex = 4;
+            dgvQuestion.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvQuestion.Location = new Point(12, 126);
+            dgvQuestion.Name = "dgvQuestion";
+            dgvQuestion.RowTemplate.Height = 25;
+            dgvQuestion.Size = new Size(591, 110);
+            dgvQuestion.TabIndex = 4;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 15);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Pergunta";
+            label3.AutoSize = true;
+            label3.Location = new Point(12, 108);
+            label3.Name = "label3";
+            label3.Size = new Size(55, 15);
+            label3.TabIndex = 5;
+            label3.Text = "Pergunta";
             // 
             // btnAddQuestion
             // 
-            this.btnAddQuestion.Location = new System.Drawing.Point(12, 252);
-            this.btnAddQuestion.Name = "btnAddQuestion";
-            this.btnAddQuestion.Size = new System.Drawing.Size(133, 23);
-            this.btnAddQuestion.TabIndex = 6;
-            this.btnAddQuestion.Text = "Adicionar Pergunta";
-            this.btnAddQuestion.UseVisualStyleBackColor = true;
-            this.btnAddQuestion.Click += new System.EventHandler(this.btnAddQuestion_Click);
+            btnAddQuestion.Location = new Point(12, 252);
+            btnAddQuestion.Name = "btnAddQuestion";
+            btnAddQuestion.Size = new Size(133, 23);
+            btnAddQuestion.TabIndex = 6;
+            btnAddQuestion.Text = "Adicionar Pergunta";
+            btnAddQuestion.UseVisualStyleBackColor = true;
+            btnAddQuestion.Click += btnAddQuestion_Click;
             // 
             // btnCancel
             // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(12, 300);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(178, 69);
-            this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.DialogResult = DialogResult.Cancel;
+            btnCancel.Location = new Point(12, 300);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(178, 69);
+            btnCancel.TabIndex = 7;
+            btnCancel.Text = "Cancelar";
+            btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(425, 300);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(178, 69);
-            this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "Salvar";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            btnSave.Location = new Point(425, 300);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(178, 69);
+            btnSave.TabIndex = 8;
+            btnSave.Text = "Salvar";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnEditQuestion
             // 
-            this.btnEditQuestion.Location = new System.Drawing.Point(228, 252);
-            this.btnEditQuestion.Name = "btnEditQuestion";
-            this.btnEditQuestion.Size = new System.Drawing.Size(139, 23);
-            this.btnEditQuestion.TabIndex = 9;
-            this.btnEditQuestion.Text = "Editar Pergunta";
-            this.btnEditQuestion.UseVisualStyleBackColor = true;
-            this.btnEditQuestion.Click += new System.EventHandler(this.btnEditQuestion_Click);
+            btnEditQuestion.Location = new Point(228, 252);
+            btnEditQuestion.Name = "btnEditQuestion";
+            btnEditQuestion.Size = new Size(139, 23);
+            btnEditQuestion.TabIndex = 9;
+            btnEditQuestion.Text = "Editar Pergunta";
+            btnEditQuestion.UseVisualStyleBackColor = true;
+            btnEditQuestion.Click += btnEditQuestion_Click;
             // 
             // btnDeleteQuestion
             // 
-            this.btnDeleteQuestion.Location = new System.Drawing.Point(464, 252);
-            this.btnDeleteQuestion.Name = "btnDeleteQuestion";
-            this.btnDeleteQuestion.Size = new System.Drawing.Size(139, 23);
-            this.btnDeleteQuestion.TabIndex = 10;
-            this.btnDeleteQuestion.Text = "Deletar";
-            this.btnDeleteQuestion.UseVisualStyleBackColor = true;
-            this.btnDeleteQuestion.Click += new System.EventHandler(this.btnDeleteQuestion_Click);
+            btnDeleteQuestion.Location = new Point(464, 252);
+            btnDeleteQuestion.Name = "btnDeleteQuestion";
+            btnDeleteQuestion.Size = new Size(139, 23);
+            btnDeleteQuestion.TabIndex = 10;
+            btnDeleteQuestion.Text = "Deletar";
+            btnDeleteQuestion.UseVisualStyleBackColor = true;
+            btnDeleteQuestion.Click += btnDeleteQuestion_Click;
             // 
             // CharacteristicsDialogForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(615, 386);
-            this.Controls.Add(this.btnDeleteQuestion);
-            this.Controls.Add(this.btnEditQuestion);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnAddQuestion);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.dgvQuestion);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtName);
-            this.Name = "CharacteristicsDialogForm";
-            this.Text = "Nova característica";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvQuestion)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(615, 386);
+            Controls.Add(btnDeleteQuestion);
+            Controls.Add(btnEditQuestion);
+            Controls.Add(btnSave);
+            Controls.Add(btnCancel);
+            Controls.Add(btnAddQuestion);
+            Controls.Add(label3);
+            Controls.Add(dgvQuestion);
+            Controls.Add(label2);
+            Controls.Add(txtDescription);
+            Controls.Add(label1);
+            Controls.Add(txtName);
+            MaximumSize = new Size(631, 425);
+            MinimumSize = new Size(631, 425);
+            Name = "CharacteristicsDialogForm";
+            Text = "Nova característica";
+            ((System.ComponentModel.ISupportInitialize)dgvQuestion).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

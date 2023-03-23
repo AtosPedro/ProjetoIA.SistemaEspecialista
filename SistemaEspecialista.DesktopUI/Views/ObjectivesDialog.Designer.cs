@@ -35,14 +35,14 @@
             // cmbObjective
             // 
             cmbObjective.FormattingEnabled = true;
-            cmbObjective.Location = new Point(12, 36);
+            cmbObjective.Location = new Point(12, 45);
             cmbObjective.Name = "cmbObjective";
             cmbObjective.Size = new Size(335, 23);
             cmbObjective.TabIndex = 1;
             // 
             // btnAddObjective
             // 
-            btnAddObjective.Location = new Point(394, 18);
+            btnAddObjective.Location = new Point(394, 27);
             btnAddObjective.Name = "btnAddObjective";
             btnAddObjective.Size = new Size(143, 56);
             btnAddObjective.TabIndex = 2;
@@ -57,6 +57,8 @@
             ClientSize = new Size(560, 108);
             Controls.Add(btnAddObjective);
             Controls.Add(cmbObjective);
+            MaximumSize = new Size(576, 147);
+            MinimumSize = new Size(576, 147);
             Name = "ObjectivesDialog";
             Text = "Adicionar Objetivo";
             ResumeLayout(false);

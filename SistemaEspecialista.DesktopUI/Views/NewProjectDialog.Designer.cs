@@ -28,84 +28,85 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.descriptionTxtRBox = new System.Windows.Forms.RichTextBox();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.okButton = new System.Windows.Forms.Button();
-            this.nameLbl = new System.Windows.Forms.Label();
-            this.descriptionLbl = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            nameTextBox = new TextBox();
+            descriptionTxtRBox = new RichTextBox();
+            cancelButton = new Button();
+            okButton = new Button();
+            nameLbl = new Label();
+            descriptionLbl = new Label();
+            SuspendLayout();
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(49, 64);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(306, 23);
-            this.nameTextBox.TabIndex = 0;
+            nameTextBox.Location = new Point(49, 64);
+            nameTextBox.Name = "nameTextBox";
+            nameTextBox.Size = new Size(306, 23);
+            nameTextBox.TabIndex = 0;
             // 
             // descriptionTxtRBox
             // 
-            this.descriptionTxtRBox.Location = new System.Drawing.Point(49, 121);
-            this.descriptionTxtRBox.Name = "descriptionTxtRBox";
-            this.descriptionTxtRBox.Size = new System.Drawing.Size(306, 96);
-            this.descriptionTxtRBox.TabIndex = 1;
-            this.descriptionTxtRBox.Text = "";
+            descriptionTxtRBox.Location = new Point(49, 121);
+            descriptionTxtRBox.Name = "descriptionTxtRBox";
+            descriptionTxtRBox.Size = new Size(306, 96);
+            descriptionTxtRBox.TabIndex = 1;
+            descriptionTxtRBox.Text = "";
             // 
             // cancelButton
             // 
-            this.cancelButton.BackColor = System.Drawing.SystemColors.Control;
-            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(49, 238);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(146, 45);
-            this.cancelButton.TabIndex = 2;
-            this.cancelButton.Text = "Cancelar";
-            this.cancelButton.UseVisualStyleBackColor = false;
+            cancelButton.BackColor = SystemColors.Control;
+            cancelButton.DialogResult = DialogResult.Cancel;
+            cancelButton.Location = new Point(49, 238);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(146, 45);
+            cancelButton.TabIndex = 2;
+            cancelButton.Text = "Cancelar";
+            cancelButton.UseVisualStyleBackColor = false;
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(209, 238);
-            this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(146, 45);
-            this.okButton.TabIndex = 3;
-            this.okButton.Text = "Confirmar";
-            this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            okButton.Location = new Point(209, 238);
+            okButton.Name = "okButton";
+            okButton.Size = new Size(146, 45);
+            okButton.TabIndex = 3;
+            okButton.Text = "Confirmar";
+            okButton.UseVisualStyleBackColor = true;
+            okButton.Click += okButton_Click;
             // 
             // nameLbl
             // 
-            this.nameLbl.AutoSize = true;
-            this.nameLbl.Location = new System.Drawing.Point(49, 46);
-            this.nameLbl.Name = "nameLbl";
-            this.nameLbl.Size = new System.Drawing.Size(98, 15);
-            this.nameLbl.TabIndex = 4;
-            this.nameLbl.Text = "Nome do Projeto";
+            nameLbl.AutoSize = true;
+            nameLbl.Location = new Point(49, 46);
+            nameLbl.Name = "nameLbl";
+            nameLbl.Size = new Size(98, 15);
+            nameLbl.TabIndex = 4;
+            nameLbl.Text = "Nome do Projeto";
             // 
             // descriptionLbl
             // 
-            this.descriptionLbl.AutoSize = true;
-            this.descriptionLbl.Location = new System.Drawing.Point(49, 103);
-            this.descriptionLbl.Name = "descriptionLbl";
-            this.descriptionLbl.Size = new System.Drawing.Size(116, 15);
-            this.descriptionLbl.TabIndex = 5;
-            this.descriptionLbl.Text = "Descrição do projeto";
+            descriptionLbl.AutoSize = true;
+            descriptionLbl.Location = new Point(49, 103);
+            descriptionLbl.Name = "descriptionLbl";
+            descriptionLbl.Size = new Size(116, 15);
+            descriptionLbl.TabIndex = 5;
+            descriptionLbl.Text = "Descrição do projeto";
             // 
             // NewProjectDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 295);
-            this.Controls.Add(this.descriptionLbl);
-            this.Controls.Add(this.nameLbl);
-            this.Controls.Add(this.okButton);
-            this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.descriptionTxtRBox);
-            this.Controls.Add(this.nameTextBox);
-            this.Name = "NewProjectDialog";
-            this.Text = "Novo projeto";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(421, 295);
+            Controls.Add(descriptionLbl);
+            Controls.Add(nameLbl);
+            Controls.Add(okButton);
+            Controls.Add(cancelButton);
+            Controls.Add(descriptionTxtRBox);
+            Controls.Add(nameTextBox);
+            MaximumSize = new Size(437, 334);
+            MinimumSize = new Size(437, 334);
+            Name = "NewProjectDialog";
+            Text = "Novo projeto";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

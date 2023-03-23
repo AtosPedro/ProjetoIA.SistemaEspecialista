@@ -31,6 +31,8 @@ public partial class MainForm : Form
         {
             Text = $"{AppConstants.AppTitle} ({LoadedProject?.Name})";
 
+            dgvObjective.DataSource = _objectiveRepository.GetObjectivesByProjectAsync(LoadedProject.Id).Result;
+            dgvCharacteristics.DataSource = _characteristicsRepository.GetCharacteristicsByProjectAsync(LoadedProject.Id).Result;
         }
     }
 
@@ -65,7 +67,7 @@ public partial class MainForm : Form
         MessageBox.Show(this, "Um Sistema Especialista é um sistema que utiliza o conhecimento humano capturado num computador para resolver problemas que normalmente seriam resolvidos por especialistas humanos. Os sistemas bem concebidos imitam o processo de raciocínio que os especialistas utilizam para resolver problemas específicos.\n\n\n"
                               + "Características - crie perguntas que serão feitas ao usuario, podem ser numericas, univaloradas ou multivaloradas a partir dessa seleção.\n\n"
                               + "Objetivos - crie valores que serão resultados de uma condição aplicada pelas variaveis a partir dessa seleção.\n\n"
-                              + "Pergunta - Substitua o texto das variáveis apresentadas na tela do usuario através dessa seleção.\n\n", "Manual",MessageBoxButtons.OK);
+                              + "Pergunta - Substitua o texto das variáveis apresentadas na tela do usuario através dessa seleção.\n\n", "Manual", MessageBoxButtons.OK);
     }
 
     private void devsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -180,25 +182,30 @@ public partial class MainForm : Form
     private async void editCharacteristicButton_Click(object sender, EventArgs e)
     {
         Characteristic characteristic = null;
-        if (dgvObjective.SelectedRows.Count > 0)
+
+        if ((dgvCharacteristics.DataSource as List<Characteristic>).Any())
         {
-            characteristic = (Characteristic)dgvCharacteristics.SelectedRows[0].DataBoundItem;
-        }
-        else
-        {
-            int rowindex = dgvCharacteristics.SelectedCells[0].RowIndex;
-            if (rowindex > -1)
-                characteristic = (Characteristic)dgvCharacteristics?.Rows[rowindex]?.DataBoundItem;
-        }
-        if (characteristic is not null)
-        {
-            using (CharacteristicsDialogForm form = new CharacteristicsDialogForm(_characteristicsRepository, _questionRepository, LoadedProject.Id, characteristic))
+            if (dgvObjective.SelectedRows.Count > 0)
             {
-                if (form.ShowDialog() == DialogResult.OK)
+                characteristic = (Characteristic)dgvCharacteristics.SelectedRows[0].DataBoundItem;
+            }
+            else
+            {
+                int rowindex = dgvCharacteristics.SelectedCells[0].RowIndex;
+                if (rowindex > -1)
+                    characteristic = (Characteristic)dgvCharacteristics?.Rows[rowindex]?.DataBoundItem;
+            }
+
+            if (characteristic is not null)
+            {
+                using (CharacteristicsDialogForm form = new CharacteristicsDialogForm(_characteristicsRepository, _questionRepository, LoadedProject.Id, characteristic))
                 {
-                    if (LoadedProject is not null)
+                    if (form.ShowDialog() == DialogResult.OK)
                     {
-                        dgvCharacteristics.DataSource = await _characteristicsRepository.GetCharacteristicsByProjectAsync(LoadedProject.Id);
+                        if (LoadedProject is not null)
+                        {
+                            dgvCharacteristics.DataSource = await _characteristicsRepository.GetCharacteristicsByProjectAsync(LoadedProject.Id);
+                        }
                     }
                 }
             }
@@ -208,23 +215,28 @@ public partial class MainForm : Form
     private async void deleteCharacteristicButton_Click(object sender, EventArgs e)
     {
         Characteristic characteristic = null;
-        if (dgvObjective.SelectedRows.Count > 0)
-        {
-            characteristic = (Characteristic)dgvCharacteristics.SelectedRows[0].DataBoundItem;
-        }
-        else
-        {
-            characteristic = (Characteristic)dgvCharacteristics.Rows[dgvObjective.SelectedCells[0].RowIndex].DataBoundItem;
-        }
 
-        if (characteristic != null)
+        if ((dgvCharacteristics.DataSource as List<Characteristic>).Any())
         {
-            await _characteristicsRepository.Remove(characteristic);
-            if (LoadedProject is not null)
+            if (dgvObjective.SelectedRows.Count > 0)
             {
-                dgvObjective.DataSource = await _objectiveRepository.GetObjectivesByProjectAsync(LoadedProject.Id);
+                characteristic = (Characteristic)dgvCharacteristics.SelectedRows[0].DataBoundItem;
+            }
+            else
+            {
+                characteristic = (Characteristic)dgvCharacteristics.Rows[dgvObjective.SelectedCells[0].RowIndex].DataBoundItem;
+            }
+
+            if (characteristic != null)
+            {
+                await _characteristicsRepository.Remove(characteristic);
+                if (LoadedProject is not null)
+                {
+                    dgvCharacteristics.DataSource = await _objectiveRepository.GetObjectivesByProjectAsync(LoadedProject.Id);
+                }
             }
         }
+
     }
 
     #endregion
@@ -254,7 +266,7 @@ public partial class MainForm : Form
                 var characteristics = new List<Characteristic>();
                 foreach (var objective in form.ObjectivesToRun)
                 {
-                    var characteristicsByObjective = (await _objectiveCharacteristicRepository.GetObjectiveCharacteristicsWithData(obc => obc.ObjectiveId == objective.Id)).Select(w=> w.Characteristic);
+                    var characteristicsByObjective = (await _objectiveCharacteristicRepository.GetWithCharacteristics(obc => obc.ObjectiveId == objective.Id)).Select(w => w.Characteristic);
                     foreach (var chara in characteristicsByObjective)
                     {
                         if (!characteristics.Contains(chara))
@@ -275,16 +287,16 @@ public partial class MainForm : Form
                         }
                     }
                 }
-                
+
                 Dictionary<string, int> pontuation = new Dictionary<string, int>();
 
                 foreach (var objective in form.ObjectivesToRun)
                 {
-                    pontuation.Add(objective.Name,0);
-                    var characteristicsByObjective = (await _objectiveCharacteristicRepository.GetObjectiveCharacteristicsWithData(obc => obc.ObjectiveId == objective.Id)).Select(w => w.Characteristic);
+                    pontuation.Add(objective.Name, 0);
+                    var characteristicsByObjective = (await _objectiveCharacteristicRepository.GetWithCharacteristics(obc => obc.ObjectiveId == objective.Id)).Select(w => w.Characteristic);
                     foreach (var item in characteristicsByObjective)
                     {
-                        var characteristicModified = characteristics.Where(w=>w.Id == item.Id).FirstOrDefault();
+                        var characteristicModified = characteristics.Where(w => w.Id == item.Id).FirstOrDefault();
                         if (characteristicModified is not null)
                         {
                             pontuation[objective.Name] += characteristicModified.Status == DefaultValues.Active ? 1 : 0;

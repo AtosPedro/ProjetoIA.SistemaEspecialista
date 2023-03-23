@@ -2,6 +2,7 @@
 using SistemaEspecialista.Domain.Entities;
 using SistemaEspecialista.Domain.Utils;
 using SistemaEspecialista.Infrastructure.Repositories;
+using System.Reflection.PortableExecutable;
 
 namespace SistemaEspecialista.DesktopUI.Views
 {
@@ -29,15 +30,30 @@ namespace SistemaEspecialista.DesktopUI.Views
             {
                 txtName.Text = _characteristic.Name;
                 txtDescription.Text = _characteristic.Description;
-                dgvQuestion.DataSource = new List<Question> { (_questionRepository.Search(qu => qu.CharacteristicId == _characteristic.Id, CancellationToken.None)).Result.FirstOrDefault() };
+                dgvQuestion.DataSource = (_questionRepository.Search(qu => qu.CharacteristicId == _characteristic.Id, CancellationToken.None)).Result.ToList();
+            }
+            else
+            {
+                dgvQuestion.DataSource = new List<Question>();
             }
 
         }
 
-        private void btnAddQuestion_Click(object sender, EventArgs e)
+        private async void btnAddQuestion_Click(object sender, EventArgs e)
         {
-            if (_questionInMemory is not null)
+            var question = (await _questionRepository.Search(w =>
+                w.CharacteristicId == _characteristic.Id &&
+                w.ProjectId == _projectId, CancellationToken.None));
+
+            if (_questionInMemory is not null || question.Any())
             {
+                MessageBox.Show(
+                    this,
+                    "Não é possível ter mais de uma pergunta para a mesma característica",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
                 return;
             }
 
@@ -87,7 +103,22 @@ namespace SistemaEspecialista.DesktopUI.Views
 
             if (question != null)
             {
-                await _questionRepository.Remove(question);
+                var dbQuestions = await _questionRepository.Search(qu =>
+                qu.CharacteristicId == _characteristic.Id &&
+                _characteristic.Id != DefaultValues.IdNullValue, CancellationToken.None);
+
+                if (dbQuestions.Where(dbq => dbq.Id == question.Id).Any())
+                {
+                    question.CharacteristicId = DefaultValues.IdNullValue;
+                    _questionInMemory = null;
+                    await _questionRepository.Remove(question);
+                }
+                else
+                {
+                    _questionInMemory = null;
+                    question = null;
+                }
+
                 dgvQuestion.DataSource = new List<Question>();
             }
 
@@ -98,6 +129,28 @@ namespace SistemaEspecialista.DesktopUI.Views
             _characteristic.ProjectId = _projectId;
             _characteristic.Name = txtName.Text;
             _characteristic.Description = txtDescription.Text;
+
+            if (String.IsNullOrEmpty(_characteristic.Name) ||
+                String.IsNullOrEmpty(_characteristic.Description))
+            {
+                MessageBox.Show(this, "Preencha todos os dados.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            var question = await _questionRepository.Search(w =>
+                w.CharacteristicId == _characteristic.Id &&
+                w.ProjectId == _projectId, CancellationToken.None);
+
+            if (_questionInMemory is null && !question.Any())
+            {
+                MessageBox.Show(
+                    this,
+                    "É necessário criar uma pergunta para a característica para salva=la.",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
 
             try
             {

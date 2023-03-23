@@ -28,81 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtTitle = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtDescription = new System.Windows.Forms.TextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            txtTitle = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
+            txtDescription = new TextBox();
+            btnCancel = new Button();
+            btnSave = new Button();
+            SuspendLayout();
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(49, 61);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(348, 23);
-            this.txtTitle.TabIndex = 0;
+            txtTitle.Location = new Point(49, 61);
+            txtTitle.Name = "txtTitle";
+            txtTitle.Size = new Size(348, 23);
+            txtTitle.TabIndex = 0;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Título";
+            label1.AutoSize = true;
+            label1.Location = new Point(49, 43);
+            label1.Name = "label1";
+            label1.Size = new Size(55, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Pergunta";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 103);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Descrição";
+            label2.AutoSize = true;
+            label2.Location = new Point(49, 103);
+            label2.Name = "label2";
+            label2.Size = new Size(63, 15);
+            label2.TabIndex = 3;
+            label2.Text = "Explicação";
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(49, 121);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(348, 23);
-            this.txtDescription.TabIndex = 2;
+            txtDescription.Location = new Point(49, 121);
+            txtDescription.Name = "txtDescription";
+            txtDescription.Size = new Size(348, 23);
+            txtDescription.TabIndex = 2;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(49, 173);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(137, 44);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.DialogResult = DialogResult.Cancel;
+            btnCancel.Location = new Point(49, 173);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(137, 44);
+            btnCancel.TabIndex = 4;
+            btnCancel.Text = "Cancelar";
+            btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(260, 173);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(137, 44);
-            this.btnSave.TabIndex = 5;
-            this.btnSave.Text = "Salvar";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            btnSave.Location = new Point(260, 173);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(137, 44);
+            btnSave.TabIndex = 5;
+            btnSave.Text = "Salvar";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // QuestionDialogForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 258);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtTitle);
-            this.Name = "QuestionDialogForm";
-            this.Text = "Nova Pergunta";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(451, 258);
+            Controls.Add(btnSave);
+            Controls.Add(btnCancel);
+            Controls.Add(label2);
+            Controls.Add(txtDescription);
+            Controls.Add(label1);
+            Controls.Add(txtTitle);
+            MaximumSize = new Size(467, 297);
+            MinimumSize = new Size(467, 297);
+            Name = "QuestionDialogForm";
+            SizeGripStyle = SizeGripStyle.Hide;
+            Text = "Nova Pergunta";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

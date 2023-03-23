@@ -21,7 +21,7 @@ namespace SistemaEspecialista.DesktopUI.Views
         {
             if (cmbObjective.SelectedIndex != -1)
             {
-                Objective  = cmbObjective.SelectedItem as Objective;
+                Objective = cmbObjective.SelectedItem as Objective;
             }
 
             this.DialogResult = DialogResult.OK;

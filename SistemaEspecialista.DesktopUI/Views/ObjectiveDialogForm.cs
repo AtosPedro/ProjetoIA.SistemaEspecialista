@@ -1,6 +1,7 @@
 ﻿using SistemaEspecialista.Application.Interfaces.Repositories;
 using SistemaEspecialista.Domain.Entities;
 using SistemaEspecialista.Domain.Utils;
+using System.Reflection.PortableExecutable;
 
 namespace SistemaEspecialista.DesktopUI.Views
 {
@@ -33,10 +34,10 @@ namespace SistemaEspecialista.DesktopUI.Views
 
             if (objective != null)
             {
+                var obJectiveCharacteristics = (_objectiveCharacteristicRepository.GetWithCharacteristics(w => w.ObjectiveId == objective.Id)).Result;
                 txtObjectiveName.Text = objective.Name;
                 txtObjectiveDescription.Text = objective.Description;
-                dataGridView1.DataSource = (_objectiveCharacteristicRepository.GetObjectiveCharacteristicsWithData(w => 
-                    w.ObjectiveId == objective.Id)).Result.Select(w=> w.Characteristic).ToList();
+                dataGridView1.DataSource = obJectiveCharacteristics.Select(w => w.Characteristic).ToList();
             }
         }
 
@@ -50,25 +51,38 @@ namespace SistemaEspecialista.DesktopUI.Views
 
                 if (Objective.Id == DefaultValues.IdNullValue)
                 {
-                    await _objectiveRepository.Add(Objective, CancellationToken.None);
-                    if (_characteristicsInMemory.Any())
-                    {
-                        foreach (var characteristic in _characteristicsInMemory)
-                        {
-                            var objectiveCharacteristic = new ObjectiveCharacteristic
-                            {
-                                ProjectId = ProjectId,
-                                CharacteristicId = characteristic.Id,
-                                ObjectiveId = Objective.Id
-                            };
-
-                            await _objectiveCharacteristicRepository.Add(objectiveCharacteristic, CancellationToken.None);
-                        }
-                    }
+                    await _objectiveRepository.Add(
+                        Objective,
+                        CancellationToken.None);
                 }
                 else
                 {
                     await _objectiveRepository.Update(Objective);
+                }
+
+                if (_characteristicsInMemory.Any())
+                {
+                    foreach (var characteristic in _characteristicsInMemory)
+                    {
+                        var dbObjectiveCharacteristic = (await _objectiveCharacteristicRepository.Search(obc =>
+                            obc.CharacteristicId == characteristic.Id &&
+                            obc.ObjectiveId == Objective.Id &&
+                            obc.ProjectId == ProjectId, CancellationToken.None)).FirstOrDefault();
+
+                        if (dbObjectiveCharacteristic != null)
+                            continue;
+
+                        var objectiveCharacteristic = new ObjectiveCharacteristic
+                        {
+                            ProjectId = ProjectId,
+                            CharacteristicId = characteristic.Id,
+                            ObjectiveId = Objective.Id
+                        };
+
+                        await _objectiveCharacteristicRepository.Add(
+                            objectiveCharacteristic,
+                            CancellationToken.None);
+                    }
                 }
 
                 this.DialogResult = DialogResult.OK;
@@ -88,27 +102,25 @@ namespace SistemaEspecialista.DesktopUI.Views
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    var characteristics = (await _objectiveCharacteristicRepository.Search(obc =>
-                    obc.ObjectiveId == Objective.Id,
-                    CancellationToken.None)).ToList();
+                    var dbObjectiveCharacteristic = (await _objectiveCharacteristicRepository.Search(obc =>
+                            obc.CharacteristicId == form.Characteristic.Id &&
+                            obc.ObjectiveId == Objective.Id &&
+                            obc.ProjectId == ProjectId, CancellationToken.None)).FirstOrDefault();
 
-                    var dbCharacteristics = characteristics.Select(obc => obc.Characteristic).ToList();
-
-                    foreach (var item in dbCharacteristics)
-                    {
-                        if (!_characteristicsInMemory.Contains(item))
-                        {
-                            _characteristicsInMemory.Add(item);
-                        }
-                    }
-
-                    if (!_characteristicsInMemory.Contains(form.Characteristic))
-                    {
+                    if (!_characteristicsInMemory.Where(cr => form.Characteristic.Id == cr.Id).Any() && dbObjectiveCharacteristic is null)
                         _characteristicsInMemory.Add(form.Characteristic);
+
+                    var characteristicsFromThisObjective = (await _objectiveCharacteristicRepository.GetWithCharacteristics(obc =>
+                            obc.ObjectiveId == Objective.Id &&
+                            obc.ProjectId == ProjectId)).Select(obc => obc.Characteristic).ToList();
+
+                    foreach (var characteristic in _characteristicsInMemory)
+                    {
+                        characteristicsFromThisObjective.Add(characteristic);
                     }
 
                     dataGridView1.DataSource = new List<Characteristic>();
-                    dataGridView1.DataSource = _characteristicsInMemory;
+                    dataGridView1.DataSource = characteristicsFromThisObjective;
                 }
             }
         }

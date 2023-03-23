@@ -57,6 +57,8 @@
             ClientSize = new Size(480, 121);
             Controls.Add(btnAddCharacteristic);
             Controls.Add(cmbCharacteristic);
+            MaximumSize = new Size(496, 160);
+            MinimumSize = new Size(496, 160);
             Name = "CharacteristcsDialog";
             Text = "Selecione a Característica";
             ResumeLayout(false);

@@ -6,7 +6,22 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>laptop_icon_shallow.ico</ApplicationIcon>
+    <Product>XPecialist IDE</Product>
+    <PackageIcon>laptop_icon_shallow.png</PackageIcon>
+    <AssemblyName>XPecialist IDE</AssemblyName>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="laptop_icon_shallow.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\Users\vegadevrio\Downloads\laptop_icon_shallow.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.3">

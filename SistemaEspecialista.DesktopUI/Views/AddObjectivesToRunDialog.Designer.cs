@@ -109,6 +109,8 @@
             Controls.Add(save_bttn);
             Controls.Add(cancel_bttn);
             Controls.Add(objective_screen);
+            MaximumSize = new Size(552, 459);
+            MinimumSize = new Size(552, 459);
             Name = "AddObjectivesToRunDialog";
             Text = "Adicionar Objetivos";
             ((System.ComponentModel.ISupportInitialize)objective_screen).EndInit();

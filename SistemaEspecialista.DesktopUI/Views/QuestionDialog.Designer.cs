@@ -28,84 +28,91 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.title_assoc = new System.Windows.Forms.Label();
-            this.pgt_assoc = new System.Windows.Forms.Label();
-            this.true_bttn = new System.Windows.Forms.Button();
-            this.continue_bttn = new System.Windows.Forms.Button();
-            this.false_bttn = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            title_assoc = new Label();
+            continue_bttn = new Button();
+            radioButton1 = new RadioButton();
+            radioButton2 = new RadioButton();
+            btnExplanation = new Button();
+            SuspendLayout();
             // 
             // title_assoc
             // 
-            this.title_assoc.AutoSize = true;
-            this.title_assoc.Location = new System.Drawing.Point(252, 9);
-            this.title_assoc.Name = "title_assoc";
-            this.title_assoc.Size = new System.Drawing.Size(176, 15);
-            this.title_assoc.TabIndex = 0;
-            this.title_assoc.Text = "Responda as perguntas à seguir:";
-            // 
-            // pgt_assoc
-            // 
-            this.pgt_assoc.AutoSize = true;
-            this.pgt_assoc.Location = new System.Drawing.Point(314, 77);
-            this.pgt_assoc.Name = "pgt_assoc";
-            this.pgt_assoc.Size = new System.Drawing.Size(55, 15);
-            this.pgt_assoc.TabIndex = 1;
-            this.pgt_assoc.Text = "pergunta";
-            // 
-            // true_bttn
-            // 
-            this.true_bttn.Location = new System.Drawing.Point(186, 128);
-            this.true_bttn.Name = "true_bttn";
-            this.true_bttn.Size = new System.Drawing.Size(90, 40);
-            this.true_bttn.TabIndex = 4;
-            this.true_bttn.Text = "Verdadeiro";
-            this.true_bttn.UseVisualStyleBackColor = true;
-            this.true_bttn.Click += new System.EventHandler(this.true_bttn_Click);
+            title_assoc.AutoSize = true;
+            title_assoc.Location = new Point(9, 72);
+            title_assoc.Name = "title_assoc";
+            title_assoc.Size = new Size(55, 15);
+            title_assoc.TabIndex = 0;
+            title_assoc.Text = "Pergunta";
             // 
             // continue_bttn
             // 
-            this.continue_bttn.Location = new System.Drawing.Point(252, 207);
-            this.continue_bttn.Name = "continue_bttn";
-            this.continue_bttn.Size = new System.Drawing.Size(171, 51);
-            this.continue_bttn.TabIndex = 5;
-            this.continue_bttn.Text = "Continuar";
-            this.continue_bttn.UseVisualStyleBackColor = true;
-            this.continue_bttn.Click += new System.EventHandler(this.continue_bttn_Click);
+            continue_bttn.Location = new Point(392, 122);
+            continue_bttn.Name = "continue_bttn";
+            continue_bttn.Size = new Size(171, 51);
+            continue_bttn.TabIndex = 5;
+            continue_bttn.Text = "Continuar";
+            continue_bttn.UseVisualStyleBackColor = true;
+            continue_bttn.Click += continue_bttn_Click;
             // 
-            // false_bttn
+            // radioButton1
             // 
-            this.false_bttn.Location = new System.Drawing.Point(400, 128);
-            this.false_bttn.Name = "false_bttn";
-            this.false_bttn.Size = new System.Drawing.Size(90, 40);
-            this.false_bttn.TabIndex = 6;
-            this.false_bttn.Text = "Falso";
-            this.false_bttn.UseVisualStyleBackColor = true;
-            this.false_bttn.Click += new System.EventHandler(this.false_bttn_Click);
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new Point(12, 122);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(81, 19);
+            radioButton1.TabIndex = 7;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "Verdadeiro";
+            radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(12, 154);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(52, 19);
+            radioButton2.TabIndex = 8;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Falso";
+            radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
+            // 
+            // btnExplanation
+            // 
+            btnExplanation.AccessibleRole = AccessibleRole.None;
+            btnExplanation.Location = new Point(9, 12);
+            btnExplanation.Name = "btnExplanation";
+            btnExplanation.Size = new Size(44, 33);
+            btnExplanation.TabIndex = 9;
+            btnExplanation.Text = "?";
+            btnExplanation.UseVisualStyleBackColor = true;
+            btnExplanation.Click += btnExplanation_Click;
             // 
             // QuestionDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 281);
-            this.Controls.Add(this.false_bttn);
-            this.Controls.Add(this.continue_bttn);
-            this.Controls.Add(this.true_bttn);
-            this.Controls.Add(this.pgt_assoc);
-            this.Controls.Add(this.title_assoc);
-            this.Name = "QuestionDialog";
-            this.Text = "QuestionDialog";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(575, 185);
+            Controls.Add(btnExplanation);
+            Controls.Add(radioButton2);
+            Controls.Add(radioButton1);
+            Controls.Add(continue_bttn);
+            Controls.Add(title_assoc);
+            MaximumSize = new Size(591, 224);
+            MinimumSize = new Size(591, 224);
+            Name = "QuestionDialog";
+            Text = "QuestionDialog";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Label title_assoc;
-        private Label pgt_assoc;
-        private Button true_bttn;
         private Button continue_bttn;
-        private Button false_bttn;
+        private RadioButton radioButton1;
+        private RadioButton radioButton2;
+        private Button btnExplanation;
     }
 }

@@ -34,6 +34,8 @@
             cancelButton = new Button();
             okButton = new Button();
             projectNameLbl = new Label();
+            btnEditProject = new Button();
+            btnDeleteProject = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProjects).BeginInit();
             SuspendLayout();
@@ -43,7 +45,7 @@
             panel1.Controls.Add(dgvProjects);
             panel1.Location = new Point(12, 57);
             panel1.Name = "panel1";
-            panel1.Size = new Size(515, 209);
+            panel1.Size = new Size(515, 163);
             panel1.TabIndex = 0;
             // 
             // dgvProjects
@@ -51,12 +53,11 @@
             dgvProjects.AllowUserToAddRows = false;
             dgvProjects.AllowUserToDeleteRows = false;
             dgvProjects.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProjects.Dock = DockStyle.Fill;
             dgvProjects.Location = new Point(0, 0);
             dgvProjects.MultiSelect = false;
             dgvProjects.Name = "dgvProjects";
             dgvProjects.ReadOnly = true;
-            dgvProjects.Size = new Size(515, 209);
+            dgvProjects.Size = new Size(515, 163);
             dgvProjects.TabIndex = 0;
             // 
             // label1
@@ -81,7 +82,6 @@
             // 
             // okButton
             // 
-            okButton.DialogResult = DialogResult.OK;
             okButton.Location = new Point(377, 289);
             okButton.Name = "okButton";
             okButton.Size = new Size(150, 50);
@@ -98,16 +98,40 @@
             projectNameLbl.Size = new Size(0, 15);
             projectNameLbl.TabIndex = 4;
             // 
+            // btnEditProject
+            // 
+            btnEditProject.Location = new Point(12, 226);
+            btnEditProject.Name = "btnEditProject";
+            btnEditProject.Size = new Size(150, 28);
+            btnEditProject.TabIndex = 5;
+            btnEditProject.Text = "Editar Projeto";
+            btnEditProject.UseVisualStyleBackColor = true;
+            btnEditProject.Click += btnEditProject_Click;
+            // 
+            // btnDeleteProject
+            // 
+            btnDeleteProject.Location = new Point(377, 226);
+            btnDeleteProject.Name = "btnDeleteProject";
+            btnDeleteProject.Size = new Size(150, 28);
+            btnDeleteProject.TabIndex = 6;
+            btnDeleteProject.Text = "Deletar projeto";
+            btnDeleteProject.UseVisualStyleBackColor = true;
+            btnDeleteProject.Click += btnDeleteProject_Click;
+            // 
             // ProjectsListDialog
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(539, 355);
+            Controls.Add(btnDeleteProject);
+            Controls.Add(btnEditProject);
             Controls.Add(projectNameLbl);
             Controls.Add(okButton);
             Controls.Add(cancelButton);
             Controls.Add(label1);
             Controls.Add(panel1);
+            MaximumSize = new Size(555, 394);
+            MinimumSize = new Size(555, 394);
             Name = "ProjectsListDialog";
             Text = "Editar";
             panel1.ResumeLayout(false);
@@ -124,5 +148,7 @@
         private Button okButton;
         private DataGridView dgvProjects;
         private Label projectNameLbl;
+        private Button btnEditProject;
+        private Button btnDeleteProject;
     }
 }
