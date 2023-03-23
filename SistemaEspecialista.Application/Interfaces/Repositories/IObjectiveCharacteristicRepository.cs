@@ -26,7 +26,7 @@ public interface IObjectiveCharacteristicRepository
     /// <returns>A Task of type IEnumerable of ObjectiveCharacteristic</returns>
     Task<List<ObjectiveCharacteristic>> GetObjectiveCharacteristicByProjectAsync(int projectId);
 
-    Task<List<ObjectiveCharacteristic>> GetObjectiveCharacteristicsWithData(Expression<Func<ObjectiveCharacteristic, bool>> predicate);
+    Task<List<ObjectiveCharacteristic>> GetWithCharacteristics(Expression<Func<ObjectiveCharacteristic, bool>> predicate);
 
     /// <summary>
     /// Get a ObjectiveCharacteristic by Id

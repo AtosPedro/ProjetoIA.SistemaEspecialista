@@ -24,11 +24,14 @@ namespace SistemaEspecialista.DesktopUI.Views
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    if (!_objectivesToRun.Contains(form.Objective))
+                    if (form.Objective is not null)
                     {
-                        _objectivesToRun.Add(form.Objective);
-                        objective_screen.DataSource = new List<Objective>();
-                        objective_screen.DataSource = _objectivesToRun;
+                        if (!_objectivesToRun.Contains(form.Objective))
+                        {
+                            _objectivesToRun.Add(form.Objective);
+                            objective_screen.DataSource = new List<Objective>();
+                            objective_screen.DataSource = _objectivesToRun;
+                        }
                     }
                 }
             }
@@ -37,6 +40,8 @@ namespace SistemaEspecialista.DesktopUI.Views
         private void button2_Click(object sender, EventArgs e)
         {
             Objective objective = null;
+
+
             if (objective_screen.SelectedRows.Count > 0)
             {
                 objective = (Objective)objective_screen.SelectedRows[0].DataBoundItem;

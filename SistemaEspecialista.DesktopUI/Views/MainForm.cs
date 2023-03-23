@@ -216,15 +216,15 @@ public partial class MainForm : Form
     {
         Characteristic characteristic = null;
 
-        if ((dgvCharacteristics.DataSource as List<Characteristic>).Any())
+        if ((dgvCharacteristics.DataSource as List<Characteristic>)?.Any() ?? false)
         {
-            if (dgvObjective.SelectedRows.Count > 0)
+            if (dgvCharacteristics.SelectedRows.Count > 0)
             {
                 characteristic = (Characteristic)dgvCharacteristics.SelectedRows[0].DataBoundItem;
             }
             else
             {
-                characteristic = (Characteristic)dgvCharacteristics.Rows[dgvObjective.SelectedCells[0].RowIndex].DataBoundItem;
+                characteristic = (Characteristic)dgvCharacteristics.Rows[dgvCharacteristics.SelectedCells[0].RowIndex].DataBoundItem;
             }
 
             if (characteristic != null)
@@ -269,7 +269,7 @@ public partial class MainForm : Form
                     var characteristicsByObjective = (await _objectiveCharacteristicRepository.GetWithCharacteristics(obc => obc.ObjectiveId == objective.Id)).Select(w => w.Characteristic);
                     foreach (var chara in characteristicsByObjective)
                     {
-                        if (!characteristics.Contains(chara))
+                        if (!characteristics.Where(c => c.Id == chara.Id).Any())
                         {
                             characteristics.Add(chara);
                         }
@@ -304,9 +304,10 @@ public partial class MainForm : Form
                     }
                 }
 
-                var winner = pontuation.Where(w => w.Value == pontuation.Values.Max()).Select(w => w.Key).FirstOrDefault();
+                var winner = pontuation.Where(w => w.Value == pontuation.Values.Max()).Select(w => w.Key).ToArray();
+                string winnerStr = string.Join(", ", winner);
 
-                MessageBox.Show(this, $"O objetivo é {winner}", "", MessageBoxButtons.OK);
+                MessageBox.Show(this, $"O resultado é {winnerStr}", "", MessageBoxButtons.OK);
             }
         }
     }

@@ -69,6 +69,7 @@ public abstract class Repository<TEntity> where TEntity : Entity
     /// <returns>The entity updated with the Id and UpdatedAt properties.</returns>
     public virtual async Task<TEntity> Update(TEntity entity)
     {
+        DbContext.DetachLocal<TEntity>(DbContext, entity, entity.Id);
         await Task.FromResult(EntityDbSet.Update(entity));
         await DbContext.SaveChangesAsync();
         return entity;
@@ -81,8 +82,12 @@ public abstract class Repository<TEntity> where TEntity : Entity
     /// <returns>The entity that was removed.</returns>
     public virtual async Task<TEntity> Remove(TEntity entity)
     {
+
+        DbContext.DetachLocal<TEntity>(DbContext, entity, entity.Id);
         await Task.FromResult(EntityDbSet.Remove(entity));
         await DbContext.SaveChangesAsync();
         return entity;
     }
+
+
 }

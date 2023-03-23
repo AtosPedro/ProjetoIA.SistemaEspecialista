@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using SistemaEspecialista.Domain.Entities;
 
@@ -52,4 +53,7 @@ public interface IApplicationDbContext
     /// <typeparam name="TEntity"></typeparam>
     /// <returns>DatabaseFacade</returns>
     public DatabaseFacade? Database { get; }
+    EntityEntry Entry(object entity);
+
+    public void DetachLocal<T>(IApplicationDbContext context, T t, int entryId) where T : Entity;
 }

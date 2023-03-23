@@ -18,13 +18,12 @@ public class ObjectiveCharacteristicRepository : Repository<ObjectiveCharacteris
             CancellationToken.None)).ToList();
     }
 
-    public async Task<List<ObjectiveCharacteristic>> GetObjectiveCharacteristicsWithData(Expression<Func<ObjectiveCharacteristic, bool>> predicate)
+    public async Task<List<ObjectiveCharacteristic>> GetWithCharacteristics(Expression<Func<ObjectiveCharacteristic, bool>> predicate)
     {
         return (await EntityDbSet
             .AsNoTracking()
             .Where(predicate)
             .Include(w => w.Characteristic)
-            .Include(w => w.Characteristic.Question)
             .ToListAsync());
     }
 }

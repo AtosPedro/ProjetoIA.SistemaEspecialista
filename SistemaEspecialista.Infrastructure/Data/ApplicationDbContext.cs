@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using SistemaEspecialista.Domain.Entities;
 using SistemaEspecialista.Infrastructure.Interfaces;
@@ -14,7 +15,23 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
     public DbSet<Question> Questions { get; set; }
     public override DatabaseFacade? Database => base.Database;
 
-    public ApplicationDbContext() 
+    public override EntityEntry Entry(object entity)
+    {
+        return base.Entry(entity);
+    }
+
+    public void DetachLocal<T>(IApplicationDbContext context, T t, int entryId) where T : Entity
+    {
+        var local = context.Set<T>()
+            .Local
+            .FirstOrDefault(entry => entry.Id.Equals(entryId));
+        if (local is not null)
+            context.Entry(local).State = EntityState.Detached;
+
+        context.Entry(t).State = EntityState.Modified;
+    }
+
+    public ApplicationDbContext()
     {
         if (Database.GetPendingMigrations().Any())
             Database.Migrate();
